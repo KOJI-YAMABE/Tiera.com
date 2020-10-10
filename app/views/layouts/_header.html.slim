@@ -1,0 +1,21 @@
+header#header.navbar.navbar-fixed-top.top_bg
+  .container
+        nav.nav.navbar-nav.navbar-left.header__logo
+           = link_to 'Tiera', home_top_path, class: "logo header__logo"
+        nav.collapse.navbar-collapse#navbarList
+          - if user_signed_in?
+            ul.nav.navbar-nav.navbar-right.header__nav_bg
+              li.nav_list = link_to new_post_path, class:"header__nav_txt" do
+                i.fas.fa-images.header__nav_icon
+                | アルバム
+              li.nav_list = link_to user_path(current_user.id), class:"header__nav_txt" do
+                i.fas.fa-user
+                | マイページ
+              li.nav_list = link_to destroy_user_session_path, method: :delete,  class:"header__nav_txt" do
+                i.fas.fa-sign-out-alt
+                | ログアウト
+          - else
+            ul.nav.navbar-nav.navbar-right.header__nav_bg
+              li.nav_list = link_to 'ログイン', new_user_session_path, class:"header__nav_txt"
+        /! ハンバーガーメニュー
+        button.navbar-toggler data-toggle="collapse" data-target="#navbarList" aria-controls="navbarList" aria-expanded="false" aria-label="ナビゲーションの切替"

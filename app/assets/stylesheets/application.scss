@@ -1,0 +1,68 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	outline: none;
+}
+.clearfix::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+/*------------ヘッダー-------------*/
+header {
+   width: 100%;
+   height: auto;
+   background-color: #FFF5EE;
+}
+
+body {
+  padding-top: 50px;
+  color: #5c6567;
+  font-family: "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック体",
+    "YuGothic", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ",
+    "Meiryo", "verdana", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: normal;
+}
+
+nav {
+	margin: 0px;
+}
+/*------------フッター-------------*/
+footer {
+   width: 100%;
+   height: auto;
+   font-size: 17px;
+   text-align: center;
+   line-height: 50px;
+   margin-top: 50px;
+   position: absolute;
+   bottom: 0;
+   background-color: #FFF5EE;
+}
+.footer__size {
+  padding: 20px;
+}
