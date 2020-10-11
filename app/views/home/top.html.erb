@@ -1,0 +1,19 @@
+<div class="top_bg">
+  <div class="container">
+    <div class="row">
+      <section class="main-visual">
+        <div class="main-visual__cont">
+          <div class="main-visual_video">
+            <%= video_tag("/videos/video1.m4v", autoplay: true, loop: true, muted: true, width: "100%") %>
+          </div>
+          <div class="main-visual_info">
+            <h2 class="txt_color_white main-visual__txt">あなたにできることから<br>始めよう</h2>
+          </div>
+          <div class="signup_btn">
+            <%= link_to "いますぐ見る", posts_path, class: "btn btn-primary" %>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

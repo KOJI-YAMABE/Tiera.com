@@ -1,0 +1,25 @@
+<div class="container">
+	<div class="row">
+	  <h3 class="heading.txt_size_l">投稿一覧</h3>
+	    <% @posts.each do |post| %>
+	    <div class="post-index">
+		    <%= link_to post_path(post.id) do %>
+		    	<div class="post-image">
+		    		<%= attachment_image_tag(post, :image, size: '250×200',fallback: 'no_image.jpg') %>
+		    	</div>
+		    	<div class="post-user-profile">
+		    		<%= attachment_image_tag(post.user, :profile_image,  :fill, 50, 50, fallback: "no-image-mini.jpg", class: "profile-image-icon") %>
+		    		<h5 class="profile_name"><%= post.user.name %></h5>
+		    	</div>
+		    	<div class="post-content">
+		    		<%= post.content %>
+		    	</div>
+		    	<div class="post-thanks-comments-count">
+		    		<%= post.thanks.count %>
+		    		<%= post.comments.count %>
+		    	</div>
+	        <% end %>
+	    </div>
+	    <% end %>
+    </div>
+</div>

@@ -87,6 +87,3 @@ gem 'refile-mini_magick'
 #デバック
 gem 'pry-rails'
 gem 'pry-byebug'
-
-gem 'slim-rails'
-gem 'html2slim'
