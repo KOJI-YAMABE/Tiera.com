@@ -7,8 +7,8 @@ class User < ApplicationRecord
   has_many :posts
   has_many :post_comments, dependent: :destroy
   has_many :thanks, dependent: :destroy
-  has_many :follower
-  has_many :followed
+  has_many :follower, foreign_key: "follower_id", class_name: "Relationship", dependent: :destroy
+  has_many :followed, foreign_key: "followed_id", class_name: "Relationship", dependent: :destroy
   has_many :following_user, through: :follower, source: :followed
   has_many :follower_user, through: :followed, source: :follower
 
@@ -27,7 +27,7 @@ class User < ApplicationRecord
     follower.find_by(followed_id: user_id).destroy
   end
 
-  #すでにフォロー済みであればture返す
+  #すでにフォロー済みであればtureを返す
   def following?(user)
     following_user.include?(user)
   end

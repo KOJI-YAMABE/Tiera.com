@@ -9,11 +9,14 @@ Rails.application.routes.draw do
     resource :relationships, only: [:create, :destroy]
       get 'follows' => 'relationships#follower', as: 'follows'
       get 'followers' => 'relationships#followed', as: 'followers'
+       member do
+      put 'users/withdraw' => 'users#withdraw'
+    end
   end
 
   resources :posts, only: [:index, :show, :edit, :new, :create, :update, :destroy] do
     resource :thanks, only: [:create, :destroy]
     resource :post_comments, only: [:create, :destroy]
     resource :tags, only: [:create, :destroy]
-   end
+  end
 end
