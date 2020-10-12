@@ -1,2 +1,42 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<section class="inner">
+	<h2 class="section-ttl">プロフィール編集</h2>
+	<%= form_for(@user, url: user_path) do |f| %>
+		<table class="customer_info customer_form">
+			<thead>
+				<th></th>
+				<th></th>
+				<th></th>
+			</thead>
+			<tbody>
+				<tr>
+					<td><%= attachment_image_tag @user, :profile_image, id: :img_prev, fallback: "no_image.jpg", size:"250x250" %></td>
+					<td><%= f.attachment_field :profile_image, id: :image %></td>
+				</tr>
+				<tr>
+					<td><%= f.label :name, 'ニックネーム' %></td>
+					<td colspan="2"><%= f.text_field :name, :placeholder =>"#{@user.name}" , class: "name form-control" %><span class="help-block"></span></td>
+				</tr>
+				<tr>
+					<td><%= f.label :email, "メール" %></td>
+					<td colspan="2"><%= f.email_field :email, autocomplete: "email", :placeholder =>"#{@user.email}", class: "email form-control" %><span class="help-block"></span></td>
+				</tr>
+				<tr>
+					<td><%= f.label :phone_number, "電話番号" %></td>
+					<td colspan="2"><%= f.text_field :phone_number, :placeholder =>"#{@user.phone_number}", class: "phone_number form-control" %><span class="help-block"></span></td>
+				</tr>
+				<tr>
+					<td><%= f.label :user_type, "ユーザータイプ" %></td>
+					<td colspan="2"><%= f.text_field :user_type, :placeholder =>"#{@user.user_type}", class: "user_type form-control" %><span class="help-block"></span></td>
+				</tr>
+				<tr>
+					<td><%= f.label :introduction, "自己紹介文" %></td>
+					<td colspan="2"><%= f.text_area :introduction, autofocus: true, autocomplete: "introduction", class: "introduction form-control" %></td>
+				</tr>
+				<tr>
+					<td colspan="2"><%= f.submit "編集内容を保存する", class: "btn btn-primary" %></td>
+					<td><%= link_to "退会する", users_withdraw_user_path(current_user), method: :put, "data-confirm" => "本当にこのアカウントを削除しますか？　※投稿されたデータおよび個人情報が全て削除されます。",  class: "btn btn-danger" %></td>
+				</tr>
+			</tbody>
+		</table>
+	<% end %>
+</section>

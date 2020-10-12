@@ -1,2 +1,75 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="container padding-top">
+  <div class="row">
+    <div class="container">
+      <h1>プロフィール</h1>
+      <div class="clearfix margin-top">
+        <div class="pull-left col-md-3 col-sm-12">
+          <%= attachment_image_tag @user, :profile_image, format: "jpeg", fallback: "no_image.jpg", size:"200x200", class: "img-rounded" %>
+        </div>
+        <div class="pull-left col-md-9 col-sm-12">
+          <h3><%= @user.name %></h3>
+          <div>
+          <%= @user.introduction %>
+          </div>
+          <div>
+            <p>投稿数：<%= @user.posts.count %><br>
+              ありがとうの合計：<%= @user.thanks.count %>
+            </p>
+          </div>
+          <div>
+            <p>フォロー：<%= link_to @user.follower.count, user_follows_path(@user) %>　フォロワー：<%= link_to @user.followed.count, user_followers_path(@user) %></p>
+          </div>
+          <% if @user == current_user %>
+            <%= link_to "プロフィールを編集する", edit_user_path(@user), class: "btn btn-primary" %>
+          <% end %>
+        </div>
+
+        <!-- フォローボタン -->
+        <% if current_user != @user %>
+          <% if current_user.following?(@user) %>
+            <%= link_to 'フォロー外す', user_relationships_path(@user), method: :delete, class: "btn btn-primary" %>
+          <% else %>
+            <%= link_to 'フォローする', user_relationships_path(@user), method: :POST, class: "btn btn-success" %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="margin-top container">
+    <div class="container">
+    <!-- タブ・メニュー -->
+      <% if @user == current_user %>
+        <ul class="nav nav-tabs">
+          <li class="active"><a href="#sampleContentA" data-toggle="tab">投稿 <i class="fas fa-user"></i></a></li>
+          <li><a href="#sampleContentB" data-toggle="tab">友達の投稿 <i class="fas fa-user-friends"></i></a></li>
+        </ul>
+    <!-- タブ内容 -->
+        <div class="tab-content margin-top">
+          <div class="tab-pane active" id="sampleContentA">
+            <% if @posts.exists? %>
+              <%= render 'posts/index',posts: @posts %>
+            <% else %>
+              <p>投稿がありません。</p>
+            <% end %>
+          </div>
+
+          <% if @user == current_user %>
+            <div class="tab-pane" id="sampleContentB">
+              <% if current_user.follower.exists? %>
+                <%= render 'posts/index',posts: @follower_posts %>
+              <% else %>
+                <p>フォロー<i class="fas fa-user-friends"></i>したいユーザーを見つけよう！</br>
+                    <%= link_to "投稿一覧ページ", posts_path %>を確認する
+                </p>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="row">
+            <%= render 'posts/index',posts: @posts %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
