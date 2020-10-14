@@ -87,3 +87,8 @@ gem 'refile-mini_magick'
 #デバック
 gem 'pry-rails'
 gem 'pry-byebug'
+# MySQLを利用するための設定
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
