@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_09_163839) do
+ActiveRecord::Schema.define(version: 2020_10_12_094540) do
 
   create_table "post_comments", force: :cascade do |t|
     t.integer "user_id"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2020_10_09_163839) do
     t.integer "garbage_count"
     t.text "content"
     t.integer "join_amount"
+    t.datetime "published_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -47,9 +48,15 @@ ActiveRecord::Schema.define(version: 2020_10_09_163839) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "tags", force: :cascade do |t|
-    t.integer "user_id"
+  create_table "tag_maps", force: :cascade do |t|
     t.integer "post_id"
+    t.integer "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "tag_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -6,6 +6,7 @@ class CreatePosts < ActiveRecord::Migration[5.2]
       t.integer :garbage_count
       t.text :content
       t.integer :join_amount
+      t.datetime :published_at
       t.timestamps
     end
   end
