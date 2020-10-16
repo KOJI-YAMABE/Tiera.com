@@ -21,9 +21,9 @@ class PostsController < ApplicationController
     @post.user_id = current_user.id
     # tag_list = params[:post][:tag_name].split(nil)
        if @post.save
-          @post.save_tag(tag_list)
+          # @post.save_tag(tag_list)
           flash[:success] = "投稿が保存されました！"
-          redirect_to posts_path
+          redirect_to post_path(@post)
        else
          render 'new'
        end
@@ -37,7 +37,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit()
+    params.require(:post).permit(:image, :garbage_count, :content, :join_amount, :published_at)
   end
 
 end
