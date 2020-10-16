@@ -1,6 +1,6 @@
 class PostComment < ApplicationRecord
 
 	belongs_to :user
-    belongs_to :book
+    belongs_to :post
     validates :comment, presence: true
 end

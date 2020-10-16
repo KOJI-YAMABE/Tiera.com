@@ -5,7 +5,7 @@
 	    <div class="post-index">
 		    <%= link_to post_path(post.id) do %>
 		    	<div class="post-image">
-		    		<%= attachment_image_tag(post, :image, size: '250×200',fallback: 'no_image.jpg') %>
+		    		<%= attachment_image_tag(post, :image, size: '200×200',fallback: 'no_image.jpg') %>
 		    	</div>
 		    	<div class="post-user-profile">
 		    		<%= attachment_image_tag(post.user, :profile_image,  :fill, 50, 50, fallback: "no-image-mini.jpg", class: "profile-image-icon") %>
@@ -16,7 +16,7 @@
 		    	</div>
 		    	<div class="post-thanks-comments-count">
 		    		<%= post.thanks.count %>
-		    		<%= post.comments.count %>
+		    		<%= post.post_comments.count %>
 		    	</div>
 	        <% end %>
 	    </div>
