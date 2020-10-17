@@ -1,8 +1,9 @@
 <section class="main-visual">
   <div>
-    <video playsinline autoplay muted loop>
-      <source src="/public/videos/video1.m4v" type="video/mp4">
-    </video>
+    <!-- <video playsinline autoplay muted loop>
+      <source src="/assets/videos/video1.m4v" type="video/mp4">
+    </video> -->
+    <%= video_tag("/videos/video1.m4v", :loop => true, autoplay: true, muted: true) %>
     <div class="intro-text">
         <div class="intro-heading">
           <div>「何ができるようになるか」</div>
