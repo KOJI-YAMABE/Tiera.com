@@ -15,13 +15,14 @@ ActiveRecord::Schema.define(version: 2020_10_12_094540) do
   create_table "post_comments", force: :cascade do |t|
     t.integer "user_id"
     t.integer "post_id"
+    t.string "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "posts", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "image_id"
+    t.string "image_id"
     t.integer "garbage_count"
     t.text "content"
     t.integer "join_amount"
@@ -31,7 +32,6 @@ ActiveRecord::Schema.define(version: 2020_10_12_094540) do
   end
 
   create_table "relationships", force: :cascade do |t|
-    t.integer "user_id"
     t.integer "follower_id"
     t.integer "followed_id"
     t.datetime "created_at", null: false
@@ -39,13 +39,15 @@ ActiveRecord::Schema.define(version: 2020_10_12_094540) do
   end
 
   create_table "spots", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "image_id"
-    t.integer "garbage_count"
-    t.text "content"
-    t.integer "join_amount"
+    t.integer "post_id"
+    t.string "address"
+    t.float "latitude"
+    t.float "longitude"
+    t.integer "review_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_spots_on_post_id"
+    t.index ["review_id"], name: "index_spots_on_review_id"
   end
 
   create_table "tag_maps", force: :cascade do |t|
