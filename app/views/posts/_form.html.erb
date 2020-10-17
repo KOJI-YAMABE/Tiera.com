@@ -1,61 +1,42 @@
-<%= form_for(post, url: url, local: true) do |f| %>
-  <div class="flex">
-    <div>
-      <%= f.label :image, "画像" %>
-      <div class="image_field">
-        <%= attachment_image_tag post, :image, format: "jpeg", id: "img_prev", fallback: "no-image.png", class: "post_image" %>
-        <span class="btn btn-file btn-info"><%= f.attachment_field :image %>画像選択</span>
-      </div>
-    </div>
-    <table class="post_info post_form">
-        <thead>
-          <th></th>
-          <th></th>
-        </thead>
-        <tbody>
-          <tr>
-            <td><%= f.label :garbage_count, 'ゴミの数' %></td>
-            <td colspan="2"><%= f.select :garbage_count, [*(1..50)], {selected: 1}, class: "garbage_count" %> 個
-              <span class="help-block"></span>
-            </td>
-          </tr>
-          <tr>
-            <td><%= f.label :join_amount, "参加人数" %></td>
-            <td colspan="2"><%= f.select :join_amount, [*(1..50)], {selected: 1}, class: "join_amount" %> 人
-              <span class="help-block"></span>
-            </td>
-          </tr>
-          <tr>
-            <td><%= f.label :published_at, "日時" %></td>
-            <td colspan="2">
-              <%= f.date_field :published_at, class: 'form-control' %>
-              <%= f.time_field :published_at, class: 'form-control' %>
-              <span class="help-block"></span>
-            </td>
-          </tr>
-          <tr>
-            <td></td>
-            <td colspan="2"><%= f.text_area :content, autofocus: true, autocomplete: "content", placeholder: "コメント入力", class: "content form-control" %>
-              <span class="help-block"></span>
-            </td>
-          </tr>
-           <!-- <tr>
-            <%= f.fields_for :spot do |s| %>
-              <td><%= s.label :address, "ゴミを拾った場所(キーワードで検索)", class: 'spot__title' %></td>
-              <td colspan="2"><%= s.text_field :address, placeholder: "スポットを入力", id: "address", class: 'spot__text form-control' %>
-            <% end %>
-                <input onclick= "codeAddress()" type= "button" value= "検索する" class="btn-xs btn btn-success"></input>
-                <div class= "map" id= "map", style= "height: 320px; width: 450px;" ></div>
-              </td>
-          </tr> -->
-        </tbody>
-    </table>
+<%= form_with model: post, local: true do |f| %>
+    <%= attachment_image_tag post, :image, id: :img_prev, fallback: "no_image.jpg", class: "update-img" %>
+    <%= f.attachment_field :image, id: :image %>
+
+    <p class="margin-top">ゴミの数</p>
+    <%= f.select :garbage_count, [*(1..50)], {selected: 1}, class: "garbage_count" %> 個
+    <span class="help-block"></span>
+
+    <p class="margin-top">参加人数</p>
+    <%= f.select :join_amount, [*(1..50)], {selected: 1}, class: "join_amount" %> 人
+    <span class="help-block"></span>
+
+    <p class="margin-top">日時</p>
+    <%= f.date_field :published_at, class: 'form-control' %>
+    <%= f.time_field :published_at, class: 'form-control' %>
+    <span class="help-block"></span>
+
+    <%= f.text_area :content, autofocus: true, autocomplete: "content", placeholder: "コメント入力", class: "content form-control" %>
+    <span class="help-block"></span>
+
     <div class="flex align-center pl5">
-      <%= f.submit "投稿" , class: "btn btn-primary" %>
+      <%= f.submit "保存" , class: "btn btn-primary" %>
     </div>
-  </div>
 <% end %>
 
-<script>
-  $('.date-picker').datetimepicker(pickTime: false);
+<!-- アップロードしたばかりの画像のプレビューを表示する-->
+<script type="text/javascript">
+$(function() {
+ function readURL(input) {
+   if (input.files && input.files[0]) {
+     var reader = new FileReader();
+     reader.onload = function (e) {
+       $('#img_prev').attr('src', e.target.result);
+     }
+     reader.readAsDataURL(input.files[0]);
+   }
+ }
+ $("#image").change(function(){
+   readURL(this);
+ });
+});
 </script>

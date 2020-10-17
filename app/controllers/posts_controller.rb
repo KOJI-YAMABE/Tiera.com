@@ -1,12 +1,26 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all
+    @posts = Post.all.page(params[:page]).per(4)
   end
 
   def show
+  if user_signed_in?
+      @post = Post.find(params[:id])
+      @post_comment = PostComment.new
+      @post_comments = @post.post_comments.order(created_at: :desc)
+      @post_tags = @post.tags
+      # @lat = @post.spot.latitude
+      # @lng = @post.spot.longitude
+      # gon.lat = @lat
+      # gon.lng = @lng
+    else
+      flash[:success] = "ここから先はログインが必要です！"
+      redirect_to new_user_session_path
+    end
   end
 
   def edit
+    ＠posts = Post.find(params[:id])
   end
 
   def new

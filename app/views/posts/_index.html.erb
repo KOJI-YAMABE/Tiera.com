@@ -1,0 +1,27 @@
+<div class="content-box">
+    <% posts.each do |post| %>
+	    <div class="thumbnail">
+	    	<div class="image-box">
+		    	<div class="post-image">
+		    		<%= link_to attachment_image_tag(post, :image, size: '200×200',fallback: 'no_image.jpg', class: "img-rounded img"), post_path(post) %>
+		    	</div>
+	    	</div>
+	    	<div class="user-box">
+		    	<div class="post-user">
+		    		<%= link_to user_path(post.user) do %>
+		    		  <%= post.user.name %>
+			    	  <%= attachment_image_tag(post.user, :profile_image,  :fill, 40, 40, fallback: "no-image-mini.jpg", class: "img-circle pull-left profile-thumb") %>
+			    	<% end %>
+		    	</div>
+		    	<div class="post-content">
+				    	 <%= post.content %>
+		    	</div>
+	    	</div>
+	    	<div class="thanks-comments-count">
+	    		<i class="fas fa-hand-holding-heart"><%= post.thanks.count %></i>
+	    		<i class="fas fa-comment-alt"><%= post.post_comments.count %></i>
+		    </div>
+	    </div>
+    <% end %>
+    <%= paginate posts %>
+</div>

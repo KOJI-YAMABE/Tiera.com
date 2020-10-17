@@ -26,7 +26,8 @@
 				</tr>
 				<tr>
 					<td><%= f.label :user_type, "ユーザータイプ" %></td>
-					<td colspan="2"><%= f.text_field :user_type, :placeholder =>"#{@user.user_type}", class: "user_type form-control" %><span class="help-block"></span></td>
+					<td colspan="2"> <%= f.select :user_type, {'個人': 1, '団体': 2}, { include_blank: '選択してください'}, { class: 'form-control' , required: true, :placeholder =>"#{@user.user_type}" } %>
+						<span class="help-block"></span></td>
 				</tr>
 				<tr>
 					<td><%= f.label :introduction, "自己紹介文" %></td>
@@ -39,4 +40,7 @@
 			</tbody>
 		</table>
 	<% end %>
+	<%= link_to @post do %>
+    <i class="fa fa-arrow-circle-left fa-fw"></i> 戻る
+  <% end %>
 </div>

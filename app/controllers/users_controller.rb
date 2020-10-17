@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @posts = @user.posts
+    @posts = @user.posts.page(params[:page]).per(4)
 
     @posts_all = Post.all
    #フォローしているユーザーを取得
@@ -22,7 +22,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      redirect_to request.referer, notice: '会員情報の更新が完了しました。'
+      redirect_to user_path(@user), notice: '会員情報の更新が完了しました。'
     else
       render :edit
     end

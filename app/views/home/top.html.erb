@@ -1,12 +1,15 @@
 <section class="main-visual">
-  <video playsinline autoplay muted loop>
-    <source src="public/videos/video1.m4v" type="video/mp4">
-  </video>
-  <div class="main-visual__txt">
-    <h2>Tiera</h2>
-    <p>あなたにできることから<br>始めよう</p>
-  </div>
-  <div class="signup_btn">
-    <%= link_to "いますぐ見る", posts_path, class: "btn btn-primary" %>
+  <div>
+    <video playsinline autoplay muted loop>
+      <source src="videos/video1.m4v" type="video/mp4">
+    </video>
+    <div class="intro-text">
+        <div class="intro-heading">
+          <div>「何ができるようになるか」</div>
+          <div>で会社を選べる世界に</div>
+        </div>
+        <a class="btn btn-xl js-scroll-trigger top-button" href="#services">Tieraとは</a>
+        <a class="btn btn-xl js-scroll-trigger top-button" href="/posts">今すぐ見る</a>
+    </div>
   </div>
 </section>

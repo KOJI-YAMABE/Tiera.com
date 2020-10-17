@@ -2,4 +2,7 @@
 	<h2>活動を投稿する</h2>
 	<%= render 'form', post: @post, url: posts_path %>
 
+    <%= link_to posts_path do %>
+      <i class="fa fa-arrow-circle-left fa-fw"></i> 投稿一覧へ戻る
+    <% end %>
 </div>
