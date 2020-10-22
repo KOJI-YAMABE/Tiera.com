@@ -1,7 +1,7 @@
 class Spot < ApplicationRecord
   belongs_to :post
   geocoded_by :address
-  before_validation :geocode
+  after_validation :geocode
   validates :address ,presence: true
 
   validate :check_latitude
