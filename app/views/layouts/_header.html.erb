@@ -1,33 +1,36 @@
-<header id="header" class="navbar navbar-fixed-top top_bg">
-	<div class="container-fluid">
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle collapsed"data-toggle="collapse"data-target="#navbarEexample8">
-				<span class="sr-only">Toggle navigation</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-			 <%= link_to 'Tiera', posts_path, class: "logo header_logo" %>
-		</div>
+<nav class="navbar navbar-default navbar-fixed-top heading">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed"data-toggle="collapse"data-target="#navbarEexample8">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="/"><img src="<%= asset_path "logo1.png" %>" alt="logo" class="logo" /></a>
+    </div>
 
-		<div class="collapse navbar-collapse" id="navbarEexample8">
-			<ul class="nav navbar-nav pull-right nav-icon">
-				<% if user_signed_in? %>
-					<li><%= link_to '', new_post_path, class: "far fa-plus-square icon" %></li>
-					<li class="btn dropdown-toggle nav-dropdown" type="button" data-toggle="dropdown">
-				        <%= attachment_image_tag current_user, :profile_image, fallback: "no_image.jpg", size: "40x40", class: "profile-image-icon" %>
-						<span class="caret"></span>
-					</li>
-					<ul class="dropdown-menu" role="menu">
-						<li role="presentation"><%= link_to 'マイページ', user_path(current_user) %></li>
-						<li role="presentation"><%= link_to 'マイページ編集', edit_user_path(current_user) %></li>
-						<li role="presentation"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
-					</ul>
+    <div class="collapse navbar-collapse" id="navbarEexample8">
+      <ul class="nav navbar-nav pull-right nav-icon">
+        <% if user_signed_in? %>
+          <li><%= link_to '', new_post_path, class: "far fa-plus-square icon" %></li>
 
-				<% else %>
-					<li><%= link_to 'ログイン', new_user_session_path, class: "btn btn-primary" %></li>
-				<% end %>
-			</ul>
-		</div>
-	</div>
-</header>
+          <li class="btn dropdown-toggle nav-dropdown" type="button" data-toggle="dropdown">
+                <%= attachment_image_tag current_user, :profile_image, fallback: "no_image.jpg", size: "40x40", class: "profile-image-icon" %>
+            <span class="caret"></span>
+          </li>
+          <ul class="dropdown-menu" role="menu">
+            <li role="presentation"><%= link_to 'マイページ', user_path(current_user)  %></li>
+            <li role="presentation"><%= link_to 'マイページ編集', edit_user_path(current_user) %></li>
+            <li role="presentation"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+          </ul>
+
+
+        <% else %>
+          <li><%= link_to '', new_user_session_path, class: "fas fa-sign-in-alt icon" %></li>
+          <li><%= link_to '', new_user_registration_path, class: "fas fa-edit icon" %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>

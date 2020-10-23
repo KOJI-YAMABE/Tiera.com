@@ -18,8 +18,20 @@
     <%= f.text_area :content, autofocus: true, autocomplete: "content", placeholder: "コメント入力", class: "content form-control" %>
     <span class="help-block"></span>
 
+    <!-- map -->
+    <div class="spot margin-top">
+      <%= f.fields_for :spot do |s| %>
+        <%= s.label :address, "拾った場所(Google Mapで検索)", class: 'spot__title' %>
+        <%= s.text_field :address, placeholder: "スポットを入力", id: "address", class: 'spot__text form-control' %>
+        <%= s.hidden_field :longitude, id: "longitude" %>
+        <%= s.hidden_field :latitude, id: "latitude" %>
+      <% end %>
+      <input onclick= "codeAddress()" type= "button" value= "検索する" class="btn-xs btn btn-success"></input>
+      <div class= "map" id= "map", style= "height: 320px; width: 450px;" ></div>
+    </div>
+
     <div class="flex align-center pl5">
-      <%= f.submit "保存" , class: "btn btn-primary" %>
+      <%= f.submit "投稿" , class: "btn btn-primary" %>
     </div>
 <% end %>
 

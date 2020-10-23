@@ -1,9 +1,21 @@
-<!-- <footer class="footer__bg txt_size_s">
-    <div class="container">
-	    <div class="row.footer__size">
-		    <p class="copyright">© Copyright 2020 Tiera, inc. All rights reserved.
-		      <br>株式会社 Tiera.com
-		    </p>
-	    </div>
-    </div>
-</footer> -->
+<footer>
+	<div class="container">
+			<div class="col-md-8 col-md-offset-2">
+				<div class="col-xs-3">
+					<p class="footer-txt"><%= link_to 'ホーム', root_path, class: "footer-text" %></p>
+				</div>
+				<div class="col-xs-3">
+				</div>
+				<div class="col-xs-3">
+					<p class="footer-txt"><%= link_to '投稿一覧', posts_path, class: "footer-text" %></p>
+				</div>
+				<div class="col-xs-3">
+					<p class="footer-txt"><%= link_to '新規投稿', new_post_path, class: "footer-text" %></p>
+				</div>
+			</div>
+
+	</div>
+	<div class="text-center margin-top copyright">
+		<p class="footer-txt">Copyright 2020 Tiera All Rights Reserved.</p>
+	</div>
+</footer>
