@@ -39,15 +39,13 @@ ActiveRecord::Schema.define(version: 2020_10_12_094540) do
   end
 
   create_table "spots", force: :cascade do |t|
-    t.integer "post_id"
-    t.string "address"
-    t.float "latitude"
-    t.float "longitude"
-    t.integer "review_id"
+    t.string "address", null: false
+    t.float "latitude", null: false
+    t.float "longitude", null: false
+    t.integer "post_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["post_id"], name: "index_spots_on_post_id"
-    t.index ["review_id"], name: "index_spots_on_review_id"
   end
 
   create_table "tag_maps", force: :cascade do |t|
