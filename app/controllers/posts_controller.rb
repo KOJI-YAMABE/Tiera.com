@@ -1,6 +1,18 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all.page(params[:page]).per(4)
+    @posts = Post.all.page(params[:page])
+    gon.my_private_key = ENV["GOOGLE_API_KEY"]
+    lat_lng = []
+    i = 0
+    @posts.each do |post|
+      if post.spot
+        pp post.spot
+        pp i
+        lat_lng[i]={latitude: "#{post.spot.latitude}", longitude: "#{post.spot.longitude}"}
+        i += 1
+      end
+    end
+    gon.lat_lng = lat_lng
   end
 
   def show
@@ -8,11 +20,12 @@ class PostsController < ApplicationController
       @post = Post.find(params[:id])
       @post_comment = PostComment.new
       @post_comments = @post.post_comments.order(created_at: :desc)
-      @post_tags = @post.tags
-      # @lat = @post.spot.latitude
-      # @lng = @post.spot.longitude
-      # gon.lat = @lat
-      # gon.lng = @lng
+       # @lat = @post.spot.latitude
+       # @lng = @post.spot.longitude
+       # gon.lat = @lat
+       # gon.lng = @lng
+
+       # @post_tags = @post.tags
     else
       flash[:success] = "ここから先はログインが必要です！"
       redirect_to new_user_session_path
@@ -21,13 +34,14 @@ class PostsController < ApplicationController
 
   def edit
     ＠posts = Post.find(params[:id])
+    gon.my_private_key = ENV["GOOGLE_API_KEY"]
   end
 
   def new
     @post = Post.new
     # @tag_list = @post.tags.pluck(:tag_name).split(nil)
-    # @post.build_spot
-    # gon.my_private_key = ENV["GOOGLE_API_KEY"]
+    @post.build_spot
+     gon.my_private_key = ENV["GOOGLE_API_KEY"]
   end
 
   def create
@@ -51,7 +65,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:image, :garbage_count, :content, :join_amount, :published_at)
+    params.require(:post).permit(:image, :garbage_count, :content, :join_amount, :published_at, spot_attributes: [:address, :latitude, :longitude])
   end
 
 end
