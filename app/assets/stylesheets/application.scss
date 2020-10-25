@@ -27,6 +27,7 @@ body {
    font-family: 'Noto Sans JP', sans-serif;
    padding-top: 80px;
    color: #5e5e5e;
+   background-color: #EEEEEE;
     &:visited {
   color: #5e5e5e;
   }
@@ -153,16 +154,18 @@ li .icon {
 
 /*------------フッター-------------*/
 footer {
-  background-color: #E6FFE9;
-  height: 80px;
+  background-color: #66CDAA;
+  height: 100px;
   bottom: 0;
   margin-bottom: 0;
   border-top: solid 0.2px #e7e7e7;
-  padding-top:15px;
+  padding-top:25px;
   }
 
-.copyright {
-  opacity: 0.5;
+footer .copyright {
+  text-transform: none;
+  font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  text-align: center;
 }
 
 .footer-text  {
