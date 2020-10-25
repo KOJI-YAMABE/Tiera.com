@@ -20,10 +20,10 @@ class PostsController < ApplicationController
       @post = Post.find(params[:id])
       @post_comment = PostComment.new
       @post_comments = @post.post_comments.order(created_at: :desc)
-       # @lat = @post.spot.latitude
-       # @lng = @post.spot.longitude
-       # gon.lat = @lat
-       # gon.lng = @lng
+       @lat = @post.spot.latitude
+       @lng = @post.spot.longitude
+         gon.lat = @lat
+         gon.lng = @lng
 
        # @post_tags = @post.tags
     else
@@ -51,7 +51,7 @@ class PostsController < ApplicationController
        if @post.save
           # @post.save_tag(tag_list)
           flash[:success] = "投稿が保存されました！"
-          redirect_to post_path(@post)
+          redirect_to posts_path(@post)
        else
          render 'new'
        end

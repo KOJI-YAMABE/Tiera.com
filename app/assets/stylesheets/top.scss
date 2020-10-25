@@ -59,6 +59,7 @@ a.index-button:hover{
 body {
   overflow-x: hidden;
   font-family: 'Roboto Slab', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  padding-top:3.3rem;
 }
 
 p {
@@ -295,27 +296,6 @@ header.masthead .intro-text .intro-heading {
   }
 }
 
-footer {
-  padding: 25px 0;
-  text-align: center;
-  background-color: #F7F8F9;
-}
-
-footer span.copyright {
-  font-size: 90%;
-  line-height: 40px;
-  text-transform: none;
-  font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
-
-footer ul.quicklinks {
-  font-size: 90%;
-  line-height: 40px;
-  margin-bottom: 0;
-  text-transform: none;
-  font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
-
 ul.social-buttons {
   margin-bottom: 0;
 }
@@ -340,9 +320,6 @@ ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons l
 }
 
 // navbar上部固定に伴い、上部に隙間作るため
-body {
-  padding-top:3.3rem;
-}
 
 .top-big{
   margin: 1rem;
@@ -393,6 +370,6 @@ body {
 }
 
 .marker {
-  background: linear-gradient(transparent 70%, #f4a460 70%);
+  background: linear-gradient(transparent 70%, #66CDAA 70%);
   font-weight: bold;
 }
