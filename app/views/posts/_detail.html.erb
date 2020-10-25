@@ -1,0 +1,35 @@
+<td>
+    <div class="post_img">
+        <%= link_to attachment_image_tag(post, :image, size: '100×100',fallback: 'no_image.jpg', class: "img-rounded img")%>
+    </div>
+</td>
+<td>
+    <div class="user_info">
+      <%= link_to user_path(post.user) do %>
+      <%= attachment_image_tag(post.user, :profile_image,  :fill, 70, 70, fallback: "no-image-mini.jpg", class: "img-circle") %>
+      <b><%= post.user.name %></b>
+      <% end %>
+    </div>
+</td>
+<td class="post_content">
+    <div class="post_body">
+        <p class="summary"><%= post.content %></p>
+    </div>
+</td>
+<td>
+  <% if post.thanked_by?(current_user) %>
+    <%= link_to post_thanks_path(post), method: :delete, remote: true do %>
+      <i class="fas fa-hand-holding-heart" aria-hidden="true" style="color: red;">
+      </i>
+      <%= post.thanks.count %>
+    <% end %>
+  <% else %>
+    <%= link_to post_thanks_path(post), method: :post, remote: true do %>
+      <i class="fas fa-hand-holding-heart" aria-hidden="true"></i>
+      <%= post.thanks.count %>
+    <% end %>
+  <% end %>
+</td>
+<td>
+    <span class="pull-right"><%= time_ago_in_words(post.created_at) %>前</span>
+</td>

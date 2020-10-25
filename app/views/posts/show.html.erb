@@ -1,50 +1,43 @@
 <div class="container">
-  <div class="row">
-    <div class="show">
-      <div class="show__maps map center-block" id="show_map" style="height: 320px; width: 500px;"></div>
+
+    <div class="row">
+      <div class="show">
+        <div class="show__maps map center-block" id="show_map" style="height: 320px; width: 500px;">
+        </div>
+      </div>
     </div>
 
-        <table class="table table-filter">
-          <tbody>
-              <tr data-status="pagado">
-                <td>
-                  <div class="post_info">
-                    <%= attachment_image_tag(@post, :image, size: '200×200',fallback: 'no_image.jpg', class: "img-rounded img pull-left") %>
-                      <%= link_to user_path(@post.user) do %>
-                        <%= @post.user.name %>
-                        <%= attachment_image_tag(@post.user, :profile_image,  :fill, 70, 70, fallback: "no-image-mini.jpg", class: "img-circle pull-left profile-thumb") %>
-                      <% end %>
-                      <div class="post_body">
-                           <span class="pull-right"><%= time_ago_in_words(@post.created_at) %>前</span>
-                            <p class="summary"><%= @post.content %></p>
-                            <i class="fas fa-comment-alt"><%= @post.post_comments.count %></i>
-                            <i class="fas fa-hand-holding-heart"><%= @post.thanks.count %></i>
-                        </div>
-                    </div>
-                </td>
-              </tr>
-          </tbody>
-        </table>
+    <div class="row">
+      <table class="table table-filter table-container">
+          <tr id="post_<%= @post.id %>">
+            <%= render 'detail', post: @post %>
+          </tr>
+      </table>
+    </div>
 
-        <%= render 'post_comments/comment', post_comments: @post_comments %>
-
-            <div class="section-title-wrapper style-1 v1 mt-30" id="divAddComment">
-              <h3 class="section-title left">
-                <span>コメント</span>
-              </h3>
-            </div>
-            <%= form_for [@post, @post_comment] do |f| %>
-              <div class="row">
-                <div class="col-sm-12">
-                  <%= f.text_area :comment, rows:'5', class: "form-control",placeholder: "コメントをここに" %>
-                </div>
-              </div>
-            <%= f.submit "送信する", class: "btn btn-lg btn-base-1 mt-20 pull-right" %>
+    <div class="row">
+      <div class="panel-body">
+          <p class="pull-left"><i class="fas fa-comment"></i> <%= @post_comments.count %> コメント</p>
+        <% if @post_comments.count > 3 %>
+          <p class="more pull-right btn btn-default btn-xs" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">もっと見る</p>
         <% end %>
+        <table class="table comment_<%= @post.id %>">
+          <%= render 'post_comments/comment', post_comments: @post_comments %>
+        </table>
+      </div>
+    </div>
 
-    <%= link_to posts_path do %>
-      <i class="fa fa-arrow-circle-left fa-fw"></i> 投稿一覧へ
-    <% end %>
+    <div class="row">
+      <%= form_for [@post, @post_comment], remote: true do |f| %>
+        <%= f.text_area :comment, rows:'5', class: "form-control",placeholder: "コメントを投稿しましょう！" %>
+        <%= f.submit "送信", class: "btn btn-primary mt-20 pull-right" %>
+      <% end %>
+    </div>
 
-  </div>
+    <div class="row">
+      <%= link_to posts_path do %>
+        <i class="fa fa-arrow-circle-left fa-fw"></i> 投稿一覧へ
+      <% end %>
+    </div>
+
 </div>

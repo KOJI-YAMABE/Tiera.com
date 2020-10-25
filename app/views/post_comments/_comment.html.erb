@@ -1,32 +1,46 @@
-<div class="comment-list bt style-2" id="comments">
-    <div class="float-wrapper">
-      <h2 class="comment-count"><%= post_comments.count %>件コメント</h2>
-    </div>
-  <ol>
-    <% post_comments.each do |post_comment| %>
-      <li class="comment">
-        <div class="comment-body bb">
-          <div class="comment-avatar">
-            <div class="avatar">
-            <%= attachment_image_tag post_comment.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
-            </div>
-          </div>
-          <div class="comment-text">
-            <div class="comment-author clearfix">
-              <a href="#" class="link-author"><%= post_comment.user.name %></a>
-              <span class="comment-meta">
-                <span class="comment-date"><%= post_comment.created_at.strftime('%Y/%m/%d') %></span>
-              </span>
-            </div>
-            <div class="comment-entry"><%= post_comment.comment %></div>
-            <% if post_comment.user == current_user %>
-              <div>
-                <%= link_to "削除", post_post_comments_path(post_id: post_comment.post, post_comment_id: post_comment), method: :delete, class: "btn btn-danger pull-right" %>
-              </div>
-            <% end %>
-          </div>
-        </div>
-      </li>
-    <% end %>
-  </ol>
-</div>
+<% post_comments.each do |post_comment| %>
+  <tr>
+    <td>
+        <%= link_to user_path(post_comment.user) do %>
+          <%= attachment_image_tag(post_comment.user, :profile_image,  :fill, 70, 70, fallback: "no-image-mini.jpg", class: "img-circle  pull-left profile-thumb") %>
+          <b><%= post_comment.user.name %></b>
+        <% end %>
+    <td>
+      <p><%= post_comment.comment %></p>
+    </td>
+    <td>
+      <%= time_ago_in_words(post_comment.created_at) %>前
+    </td>
+    <td>
+      <% if post_comment.user == current_user %>
+        <%= link_to post_post_comments_path(post_comment, post_comment.post), method: :delete, remote: true do %>
+          <i class="far fa-trash-alt"></i>
+        <% end %>
+      <% end %>
+    </td>
+  </tr>
+<% end %>
+
+<!-- コメント内容(4件目以降) ------------------------------------------------------------------>
+  <% post_comments.offset(3).each do |post_comment| %>
+   <!--  <tr>
+      <td>
+          <%= link_to user_path(post_comment.user) do %>
+            <%= attachment_image_tag(post_comment.user, :profile_image,  :fill, 70, 70, fallback: "no-image-mini.jpg", class: "img-circle  pull-left profile-thumb") %>
+            <b><%= post_comment.user.name %></b>
+          <% end %>
+      <td>
+        <p><%= post_comment.comment %></p>
+      </td>
+      <td>
+        <%= time_ago_in_words(post_comment.created_at) %>前
+      </td>
+      <td>
+        <% if post_comment.user == current_user %>
+          <%= link_to post_post_comments_path(post_comment, post_comment.post), method: :delete, remote: true do %>
+            <i class="far fa-trash-alt"></i>
+          <% end %>
+        <% end %>
+      </td>
+    </tr> -->
+  <% end %>

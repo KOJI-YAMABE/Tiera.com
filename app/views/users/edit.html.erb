@@ -1,12 +1,7 @@
 <div class="container padding-top">
 	<h2 class="section-ttl">プロフィール編集</h2>
-	<%= form_with model: @user do |f| %>
+	<%= form_for(@user, url: user_path) do |f| %>
 		<table class="user_info user_form">
-			<thead>
-				<th></th>
-				<th></th>
-				<th></th>
-			</thead>
 			<tbody>
 				<tr>
 					<td><%= attachment_image_tag @user, :profile_image, id: :img_prev, fallback: "no_image.jpg", size:"250x250" %></td>
@@ -41,6 +36,6 @@
 		</table>
 	<% end %>
 	<%= link_to @post do %>
-    <i class="fa fa-arrow-circle-left fa-fw"></i> 戻る
-  <% end %>
+       <i class="fa fa-arrow-circle-left fa-fw"></i> 戻る
+    <% end %>
 </div>
