@@ -18,6 +18,7 @@
 //= require gmaps/google
 //= require_tree .
 
+// プレビュー
 $(function() {
  function readURL(input) {
    if (input.files && input.files[0]) {

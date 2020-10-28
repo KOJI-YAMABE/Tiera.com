@@ -1,0 +1,9 @@
+<% if post.thanked_by?(current_user) %>
+  <%= link_to post_thanks_path(post), method: :delete, remote: true, class: "option__thank-on box" do %>
+    <i class="fas fa-hand-holding-heart"></i><%= post.thanks.count %> ありがとう
+  <% end %>
+<% else %>
+  <%= link_to post_thanks_path(post), method: :post, remote: true, class: "option__thank-off box" do %>
+    <i class="fas fa-hand-holding-heart"></i><%= post.thanks.count %> ありがとう
+  <% end %>
+<% end %>

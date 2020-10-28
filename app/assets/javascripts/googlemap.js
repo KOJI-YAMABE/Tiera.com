@@ -27,7 +27,7 @@ function initMap(){
         map: map //マーカーを落とすマップを指定
       });
       console.log(marker);
-     map.setCenter(latlng);
+      map.setCenter(latlng);
 
     }
   }
@@ -40,18 +40,18 @@ function codeAddress(){
   geocoder.geocode( { 'address': inputAddress}, function(results, status) {
     if (status == 'OK') {
       let lat = results[0].geometry.location.lat();
-            let lng = results[0].geometry.location.lng();
-        document.getElementById('longitude').value=lng;
-        document.getElementById('latitude').value=lat;
+      let lng = results[0].geometry.location.lng();
+      document.getElementById('longitude').value=lng;
+      document.getElementById('latitude').value=lat;
       let mark = {
-          lat: lat, //緯度
-          lng: lng  //経度
+        lat: lat,
+        lng: lng
       };
       map.setCenter(results[0].geometry.location); //最も近い、判読可能な住所を取得したい場所の緯度・経度
       let marker = new google.maps.Marker({
           map: map, //マーカーを落とすマップを指定
           position: results[0].geometry.location //マーカーを落とす位置を決める
-      });
+        });
     } else {
       alert('該当する結果がありませんでした');
     }

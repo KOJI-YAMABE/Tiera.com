@@ -13,30 +13,30 @@
  *= require_tree .
  *= require_self
  */
-@import "bootstrap-sprockets";
-@import "bootstrap";
-@import "font-awesome-sprockets";
-@import "font-awesome";
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+ @import "font-awesome-sprockets";
+ @import "font-awesome";
 
-* {
+ * {
   margin: 0;
   padding: 0;
 }
 
 body {
-   font-family: 'Noto Sans JP', sans-serif;
-   padding-top: 80px;
-   color: #5e5e5e;
-   background-color: #EEEEEE;
-    &:visited {
+ font-family: 'Noto Sans JP', sans-serif;
+ padding-top: 80px;
+ color: #5e5e5e;
+ background-color: #EEEEEE;
+ &:visited {
   color: #5e5e5e;
-  }
-  a {
+}
+a {
   color: #5e5e5e;
-  }
-  &:hover {
-    text-decoration: none;
-    }
+}
+&:hover {
+  text-decoration: none;
+}
 }
 
 #back {
@@ -77,7 +77,7 @@ main {
 .logo {
   width: 200px;
   margin: 8px;
-    &:hover {
+  &:hover {
     opacity: .6;
     text-decoration: none;
   }
@@ -86,25 +86,25 @@ main {
 .img-rounded {
   border-radius: 6px;
   &:hover {
-      opacity: 0.6;
-      }
+    opacity: 0.6;
   }
+}
 
 .profile-image-icon {
   margin-bottom: 10px;
   border-radius: 10px;
   border: solid 0.3px #E2E2E2;
-   &:hover {
+  &:hover {
     opacity: 0.6;
     transition-duration: 0.3s;
-   }
- }
+  }
+}
 
 .profile-name {
-    text-decoration: none;
-    padding-left: 10px;
-    padding-top: 4px;
-    padding-bottom: 10px;
+  text-decoration: none;
+  padding-left: 10px;
+  padding-top: 4px;
+  padding-bottom: 10px;
 }
 
 li .icon {
@@ -118,32 +118,63 @@ li .icon {
 }
 
 .navbar {
-    background-color: #fff;
+  background-color: #fff;
 }
 
 .navbar-default .navbar-nav li a {
   color:#393F6A;
 }
+// // 検索
+// .search_container{
+//   position: relative;
+//   box-sizing: border-box;
+//   border: 2px solid #3879D9;
+//   padding: 3px 10px;
+//   border-radius: 3px;
+//   height: 2.3em;
+//   width: 265px;
+//   overflow: hidden;
+// }
+// .search_container input[type="text"]{
+//   border: none;
+//   height: 2.0em;
+// }
+// .search_container input[type="text"]:focus {
+//   outline: 0;
+// }
+// .search_container input[type="submit"]{
+//   cursor: pointer;
+//   font-family: FontAwesome;
+//   border: none;
+//   background: #3879D9;
+//   color: #fff;
+//   position: absolute;
+//   width: 3.5em;
+//   height: 3.0em;
+//   right:0px;
+//   top: -5px;
+//   outline : none;
+// }
 
 /* タブレット横置きサイズ（1024px）以下の際に適用される設定 */
 @media screen and (max-width:1024px) {
   .logo {
-  width: 200px;
-  margin: 8px;
+    width: 200px;
+    margin: 8px;
   }
 }
 /* タブレット縦置きサイズ（768px）以下の際に適用される設定 */
 @media screen and (max-width:768px) {
   .logo {
-  width: 200px;
-  margin: 8px;
+    width: 200px;
+    margin: 8px;
   }
 }
 /* スマートフォンサイズ（425px）以下の際に適用される設定 */
 @media screen and (max-width:425px) {
   .logo {
-  width: 120px;
-  margin: 8px;
+    width: 120px;
+    margin: 8px;
   }
 }
 
@@ -155,7 +186,7 @@ footer {
   margin-bottom: 0;
   border-top: solid 0.2px #e7e7e7;
   padding-top:25px;
-  }
+}
 
 footer .copyright {
   text-transform: none;
@@ -168,32 +199,32 @@ footer .copyright {
   color: #383838;
   text-decoration: none;
   &:visited {
-  color: #383838;
+    color: #383838;
   }
   &:hover {
     opacity: 0.7;
     text-decoration: none;
-    }
+  }
 }
 
 /*------------ログイン-------------*/
 @media (min-width: 768px) {
-    .omb_row-sm-offset-3 div:first-child[class*="col-"] {
-        margin-left: 25%;
-    }
+  .omb_row-sm-offset-3 div:first-child[class*="col-"] {
+    margin-left: 25%;
+  }
 }
 
 .omb_login .omb_authTitle {
-    text-align: center;
+  text-align: center;
   line-height: 300%;
 }
-  
+
 .omb_login .omb_socialButtons a {
   color: white; // In yourUse @body-bg 
   opacity:0.9;
 }
 .omb_login .omb_socialButtons a:hover {
-    color: white;
+  color: white;
   opacity:1;      
 }
 .omb_login .omb_socialButtons .omb_btn-facebook {background: #3b5998;}
@@ -246,16 +277,16 @@ footer .copyright {
 /*------------画像------------*/
 .update-img {
   width: 150px;
-  }
+}
 
-  .img {
+.img {
   object-fit: cover;
   box-shadow:  5px 10px 20px rgba(0,0,0,0.25);
-    &:hover{
+  &:hover{
     opacity: .5;
     transition: transform 0.3s ease;
-    }
+  }
   &-show {
-  width: 500px;
+    width: 500px;
   }
 }
