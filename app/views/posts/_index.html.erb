@@ -14,7 +14,7 @@
               <td>
                 <div class="user_info">
                     <%= link_to user_path(post.user) do %>
-                    <%= attachment_image_tag(post.user, :profile_image,  :fill, 70, 70, fallback: "no-image.jpg", class: "img-circle") %>
+                    <%= attachment_image_tag(post.user, :profile_image,  :fill, 70, 70, fallback: "no_image.jpg", class: "img-circle") %>
                     <%= post.user.name %>
                     <% end %>
                   </div>
