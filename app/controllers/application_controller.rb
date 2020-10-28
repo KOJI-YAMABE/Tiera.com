@@ -18,10 +18,10 @@ class ApplicationController < ActionController::Base
   end
 
   def set_current_user
-  @current_user = User.find_by(id: session[:user_id])
+    @current_user = User.find_by(id: session[:user_id])
   end
 
-protected
+  protected
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email, :password])
     devise_parameter_sanitizer.permit(:sign_in, keys: [:email, :password])

@@ -13,7 +13,6 @@ class ThanksController < ApplicationController
   end
 
   private
-
   def thank_params
     params.require(:post).permit(:user_id, :post_id)
   end

@@ -1,3 +1,52 @@
 // Place all the styles related to the Thanks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.option {
+	justify-content: space-between;
+	&__thank {
+		&-on {
+			justify-content: center;
+			display: flex;
+			margin-top: 10px;
+			text-decoration: none;
+			padding: 4px 4px;
+			border-radius: 20px;
+			color: #D65A9C;
+			border: 0.5px solid #D65A9C;
+			line-height: 25px;
+			&:hover {
+				text-decoration: none;
+				color: #D65A9C;
+			}
+		}
+		&-off {
+			justify-content: center;
+			margin-top: 10px;
+			text-decoration: none;
+			padding: 4px 4px;
+			border-radius: 20px;
+			display: flex;
+			line-height: 25px;
+			background: #f5f5f5;
+			color: #8B8B8B;
+			&:hover {
+				text-decoration: none;
+				color: #D65A9C;
+			}
+		}
+	}
+}
+
+
+
+.fav {
+	padding-right: 6px;
+	padding-left: 6px;
+	padding-top: 5px;
+}
+
+.box {
+	box-shadow: 0 5px 5px 0 rgba(0, 0, 0, .2);
+}
+

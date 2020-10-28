@@ -5,20 +5,20 @@
 
 
 .resultTableContent{
-    border-radius: 4px;
-    background-color: #dbebfb;
-    padding: 0px 10px 0px 10px;
+  border-radius: 4px;
+  background-color: #dbebfb;
+  padding: 0px 10px 0px 10px;
 
 }
 
 .resultArea{
-    margin-top: 10px;
-    text-align: center;
+  margin-top: 10px;
+  text-align: center;
 }
 
 
 .hidden{
-    display: none;
+  display: none;
 }
 
 
@@ -28,7 +28,6 @@
 	margin-top:10px;
 	margin-bottom:10px;
 }
-
 
 .show-pic {
 	margin: 10px;
@@ -51,8 +50,8 @@
 }
 
 .img {
-    width: 120px;
-    height: 120px;
+  width: 120px;
+  height: 120px;
 }
 
 // index ページ
@@ -83,7 +82,7 @@
   	margin-bottom:10px;
   	height: 280px;
   	width: 500px;
-	}
+  }
   .img{
   	width: 200px;
   	height: 200px;
@@ -100,9 +99,9 @@
     width: 160px;
     height: 160px;
   }
-    .star-body {
-  height: 110px;
-}
+  .star-body {
+    height: 110px;
+  }
 }
 
 @media screen and (max-width:540px) {
@@ -110,9 +109,9 @@
     width: 150px;
     height: 150px;
   }
-    .star-body {
-  height: 130px;
-}
+  .star-body {
+    height: 130px;
+  }
 
 }
 /* スマートフォンサイズ（425px）以下の際に適用される設定 */
@@ -120,12 +119,12 @@
   .img{
   	width: 150px;
   	height: 150px;
-  	}
+  }
 }
 
 @media screen and (max-width:400px) {
   .img{
     width: 120px;
     height: 120px;
-    }
+  }
 }

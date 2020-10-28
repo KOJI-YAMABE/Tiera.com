@@ -1,36 +1,46 @@
 <%= form_with model: post, local: true do |f| %>
-    <%= attachment_image_tag post, :image, id: :img_prev, fallback: "no_image.jpg", class: "update-img" %>
-    <%= f.attachment_field :image, id: :image %>
+    <div class="col-xs-6">
+        <%= f.label :garbage_count, "拾ったゴミの数" %><br>
+        <%= f.select :garbage_count, [*(1..50)], {selected: 1}, class: "garbage_count" %> 個
+        <span class="help-block"></span>
 
-    <p class="margin-top">ゴミの数</p>
-    <%= f.select :garbage_count, [*(1..50)], {selected: 1}, class: "garbage_count" %> 個
-    <span class="help-block"></span>
+        <%= f.label :join_amount, "参加人数" %><br>
+        <%= f.select :join_amount, [*(1..50)], {selected: 1}, class: "join_amount" %> 人
+        <span class="help-block"></span>
 
-    <p class="margin-top">参加人数</p>
-    <%= f.select :join_amount, [*(1..50)], {selected: 1}, class: "join_amount" %> 人
-    <span class="help-block"></span>
+        <%= f.label :published_at, "日時" %><br>
+        <%= f.date_field :published_at, class: 'form-control' %>
+        <span class="help-block"></span>
+        <%= f.time_field :published_at, class: 'form-control' %>
+        <span class="help-block"></span>
 
-    <p class="margin-top">日時</p>
-    <%= f.date_field :published_at, class: 'form-control' %>
-    <%= f.time_field :published_at, class: 'form-control' %>
-    <span class="help-block"></span>
+        <%= f.text_area :content, autofocus: true, autocomplete: "content", placeholder: "コメント入力", class: "content form-control" %>
+        <span class="help-block"></span>
 
-    <%= f.text_area :content, autofocus: true, autocomplete: "content", placeholder: "コメント入力", class: "content form-control" %>
-    <span class="help-block"></span>
-
-    <!-- map -->
-    <div class="spot margin-top">
-      <%= f.fields_for :spot do |s| %>
-        <%= s.label :address, "拾った場所(Google Mapで検索)", class: 'spot__title' %>
-        <%= s.text_field :address, placeholder: "スポットを入力", id: "address", class: 'spot__text form-control' %>
-        <%= s.hidden_field :longitude, id: "longitude" %>
-        <%= s.hidden_field :latitude, id: "latitude" %>
-      <% end %>
-      <input onclick= "codeAddress()" type= "button" value= "検索する" class="btn-xs btn btn-success"></input>
-      <div class= "map" id= "map", style= "height: 320px; width: 450px;" ></div>
+        <div class="spot margin-top">
+          <%= f.fields_for :spot do |s| %>
+            <%= s.label :address, "拾った場所(Google Mapで検索)", class: 'spot__title' %>
+            <div class="spot_form">
+                <div class="col-xs-10">
+                    <%= s.text_field :address, placeholder: "スポットを入力", id: "address", class: 'spot__text form-control' %>
+                    <%= s.hidden_field :longitude, id: "longitude" %>
+                    <%= s.hidden_field :latitude, id: "latitude" %>
+                </div>
+              <% end %>
+                <div class="col-xs-2">
+                  <input onclick= "codeAddress()" type= "button" value= "検索する" class=" btn btn-info btn-sm"></input>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-6">
+        <%= attachment_image_tag post, :image, id: :img_prev, fallback: "no-image-icon.jpg", class: "update-img" %>
+        <%= f.attachment_field :image %>
+        <div class= "map" id= "map", style= "height: 320px; width: 450px;" ></div>
     </div>
 
-    <div class="flex align-center pl5">
+    <div class="flex align-center ">
       <%= f.submit "投稿" , class: "btn btn-primary" %>
     </div>
 <% end %>
+
