@@ -47,6 +47,10 @@ class PostsController < ApplicationController
     # tag_list = params[:post][:tag_name].split(nil)
       if @post.save
         # @post.save_tag(tag_list)
+        tags = Vision.get_image_data(@post.image)
+        tags.each do |tag|
+          @post.tags.create(tag_name: tag)
+        end
         flash[:success] = "投稿が保存されました！"
         redirect_to posts_path(@post)
       else
