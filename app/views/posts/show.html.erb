@@ -16,6 +16,9 @@
         <%= attachment_image_tag @post, :image, format: "jpeg", fallback: "no_image.jpg",  class: "img-rounded img-show center-block" %>
         <h4 class="col-xs-10 margin col-xs-offset-1"><%= @post.content %>
         </h4>
+        <% @post.tags.each do |tag| %>
+          <span class="label"><%= tag.tag_name %></span>
+        <% end %>
 
         <div class="pull-right">
             <small>投稿日 <%= @post.created_at.strftime('%Y/%m/%d/ %H:%M') %></small>
@@ -42,12 +45,12 @@
       </div>
 
       <div class="col-md-8 col-md-offset-2">
-        <div class="panel-body">
+        <!-- <div class="panel-body">
             <p class="pull-left"><i class="fas fa-comment"></i>
               <%= @post_comments.count %> コメント</p>
           <% if @post_comments.count > 3 %>
             <p class="more pull-right btn btn-default btn-xs" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">もっと見る</p>
-          <% end %>
+          <% end %> -->
           <table class="table comment_<%= @post.id %>">
             <%= render 'post_comments/comment', post_comments: @post_comments %>
           </table>
@@ -65,3 +68,4 @@
     <%= link_to "一覧ページに戻る", posts_path, class: "btn btn-default btn-xs" %>
   </div>
 </div>
+

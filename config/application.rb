@@ -10,6 +10,7 @@ module TieraCom
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
+    config.paths.add 'lib', eager_load: true
     config.i18n.default_locale = :ja #日本語設定
     config.time_zone = 'Tokyo'
     # Settings in config/environments/* take precedence over those specified here.
