@@ -2,20 +2,21 @@
   <tr>
     <td>
         <%= link_to user_path(post_comment.user) do %>
-          <%= attachment_image_tag(post_comment.user, :profile_image,  :fill, 70, 70, fallback: "no-image-mini.jpg", class: "img-circle  pull-left profile-thumb") %>
-            <h5 class="post_comment-name"><%= post_comment.user.name %>
-            </h5>
+          <%= attachment_image_tag(post_comment.user, :profile_image,  :fill, 70, 70, fallback: "no_image.jpg", class: "img-rounded pull-left profile-thumb") %>
         <% end %>
-        <p><%= post_comment.comment %></p>
+        <h5 class="post_comment-name"><%= post_comment.user.name %></h5>
     <td>
-      <%= time_ago_in_words(post_comment.created_at) %>前
+      <p><%= post_comment.comment %></p>
     </td>
     <td>
-      <% if post_comment.user == current_user %>
-        <%= link_to post_post_comments_path(post_comment, post_comment.post), method: :delete, remote: true do %>
-          <i class="far fa-trash-alt"></i>
-        <% end %>
-      <% end %>
+      <div class="pull-right">
+        <%= time_ago_in_words(post_comment.created_at) %>前
+          <% if post_comment.user == current_user %>
+            <%= link_to post_post_comments_path(post_comment, post_comment.post), method: :delete, remote: true do %>
+              <i class="far fa-trash-alt"></i>
+            <% end %>
+          <% end %>
+      </div>
     </td>
   </tr>
 <% end %>

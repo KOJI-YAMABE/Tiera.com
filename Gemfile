@@ -69,6 +69,7 @@ gem 'devise'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
+# gem "omniauth-rails_csrf_protection"
 
 #マップ
 gem 'gmaps4rails'
