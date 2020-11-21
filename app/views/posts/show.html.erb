@@ -45,12 +45,12 @@
       </div>
 
       <div class="col-md-8 col-md-offset-2">
-        <!-- <div class="panel-body">
+        <div class="panel-body">
             <p class="pull-left"><i class="fas fa-comment"></i>
               <%= @post_comments.count %> コメント</p>
           <% if @post_comments.count > 3 %>
             <p class="more pull-right btn btn-default btn-xs" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">もっと見る</p>
-          <% end %> -->
+          <% end %>
           <table class="table comment_<%= @post.id %>">
             <%= render 'post_comments/comment', post_comments: @post_comments %>
           </table>
