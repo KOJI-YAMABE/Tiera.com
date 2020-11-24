@@ -15,23 +15,26 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
  @import "font-awesome-sprockets";
  @import "font-awesome";
 
  * {
   margin: 0;
   padding: 0;
+  color: #6c6b6b;
 }
 
 body {
  font-family: 'Noto Sans JP', sans-serif;
  padding-top: 80px;
  color: #5e5e5e;
- background-color: #EEEEEE;
+ // background-color: #EEEEEE;
  &:visited {
   color: #5e5e5e;
 }
 a {
+  text-align: center;
   color: #5e5e5e;
 }
 &:hover {
@@ -39,18 +42,14 @@ a {
 }
 }
 
-#back {
-  position: fixed;
-  right: 20px;
-  bottom: 20px;
-}
-#back img {
-  width: 40px;
-}
-
-main {
-  padding-bottom: 50px;
-}
+// #back {
+//   position: fixed;
+//   right: 20px;
+//   bottom: 20px;
+// }
+// #back img {
+//   width: 40px;
+// }
 
 .margin {
   margin-top: 15px;
@@ -117,13 +116,14 @@ li .icon {
   margin-top: 15px;
 }
 
-.navbar {
-  background-color: #fff;
-}
+// .navbar {
+//   background-color: #fff;
+// }
 
-.navbar-default .navbar-nav li a {
-  color:#393F6A;
-}
+// .navbar-default .navbar-nav li a {
+//   color:#393F6A;
+// }
+
 // // 検索
 // .search_container{
 //   position: relative;
@@ -180,7 +180,7 @@ li .icon {
 
 /*------------フッター-------------*/
 footer {
-  background-color: #66CDAA;
+  // background-color: #66CDAA;
   height: 100px;
   bottom: 0;
   margin-bottom: 0;

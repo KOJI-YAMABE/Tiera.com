@@ -22,15 +22,12 @@
 }
 
 
-
-#showページ
 .map {
-	margin-top:10px;
-	margin-bottom:10px;
+	margin-top:15px 0;
 }
 
 .show-pic {
-	margin: 10px;
+	margin: 15px;
 }
 
 .post-comment {
@@ -50,8 +47,8 @@
 }
 
 .img {
-  width: 120px;
-  height: 120px;
+  width: 300px;
+  height: 300px;
 }
 
 .label {
@@ -70,76 +67,60 @@
 }
 
 // index ページ
-.post-img{
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  margin-left: 10px;
-  margin-top: 10px;
+.show-pic {
+  margin: 10px;
 }
 
 .companyHr{
   margin-top: 15px;
-  border-top: 1px solid #e9eef1;
 }
-/* タブレット横置きサイズ（1024px）以下の際に適用される設定 */
-@media screen and (max-width:1024px) {
-  .img{
-  	width: 150px;
-  	height: 150px;
-  }
-}
+// /* タブレット横置きサイズ（1024px）以下の際に適用される設定 */
+// @media screen and (max-width:1024px) {
+//   .img{
+//   	width: 150px;
+//   	height: 150px;
+//   }
+// }
 
-/* スマートフォンサイズ（992px）以下の際に適用される設定 */
-@media screen and (max-width:768px) {
-  .map {
-  	margin-top:10px;
-  	margin-bottom:10px;
-  	height: 280px;
-  	width: 500px;
-  }
-  .img{
-  	width: 200px;
-  	height: 200px;
+// /* スマートフォンサイズ（992px）以下の際に適用される設定 */
+// @media screen and (max-width:768px) {
+//   .map {
+//   	margin-top:10px;
+//   	margin-bottom:10px;
+//   	height: 280px;
+//   	width: 500px;
+//   }
+//   .img{
+//   	width: 200px;
+//   	height: 200px;
 
-  }
-}
+//   }
+// }
 
-.star-body {
-  height: 100px;
-}
+// @media screen and (max-width:640px) {
+//   .img{
+//     width: 160px;
+//     height: 160px;
+//   }
+// }
 
-@media screen and (max-width:640px) {
-  .img{
-    width: 160px;
-    height: 160px;
-  }
-  .star-body {
-    height: 110px;
-  }
-}
+// @media screen and (max-width:540px) {
+//   .img{
+//     width: 150px;
+//     height: 150px;
+//   }
+// }
+// /* スマートフォンサイズ（425px）以下の際に適用される設定 */
+// @media screen and (max-width:425px) {
+//   .img{
+//   	width: 150px;
+//   	height: 150px;
+//   }
+// }
 
-@media screen and (max-width:540px) {
-  .img{
-    width: 150px;
-    height: 150px;
-  }
-  .star-body {
-    height: 130px;
-  }
-
-}
-/* スマートフォンサイズ（425px）以下の際に適用される設定 */
-@media screen and (max-width:425px) {
-  .img{
-  	width: 150px;
-  	height: 150px;
-  }
-}
-
-@media screen and (max-width:400px) {
-  .img{
-    width: 120px;
-    height: 120px;
-  }
-}
+// @media screen and (max-width:400px) {
+//   .img{
+//     width: 120px;
+//     height: 120px;
+//   }
+// }

@@ -14,20 +14,20 @@ class User < ApplicationRecord
 
   attachment :profile_image, destroy: false
 
-  validates :name, length: {maximum: 20, minimum: 2}, uniqueness: true
-  validates :introduction, length: {maximum: 50}
+  validates :name, length: { maximum: 20, minimum: 2 }, uniqueness: true
+  validates :introduction, length: { maximum: 50 }
 
-  #ユーザーをフォローする
+  # ユーザーをフォローする
   def follow(user_id)
     follower.create(followed_id: user_id)
   end
 
-  #ユーザーのフォローを解除する
+  # ユーザーのフォローを解除する
   def unfollow(user_id)
     follower.find_by(followed_id: user_id).destroy
   end
 
-  #すでにフォロー済みであればtureを返す
+  # すでにフォロー済みであればtureを返す
   def following?(user)
     following_user.include?(user)
   end
