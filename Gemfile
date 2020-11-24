@@ -50,7 +50,7 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-    #コーディング規約
+  # コーディング規約
   gem 'rubocop-airbnb'
 end
 
@@ -64,36 +64,35 @@ end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-#ログイン機能
+# ログイン機能
 gem 'devise'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 # gem "omniauth-rails_csrf_protection"
 
-#マップ
+# マップ
 gem 'gmaps4rails'
 gem 'geocoder'
 gem 'gon'
 
-#環境変数の管理
+# 環境変数の管理
 gem 'dotenv-rails'
 
-#レイアウト
+# レイアウト
 gem 'bootstrap-sass'
 gem 'jquery-rails'
-gem 'kaminari','~>1.1.1'
+gem 'kaminari', '~>1.1.1'
 gem 'font-awesome-sass'
 
-#画像投稿
+# 画像投稿
 gem 'refile', require: 'refile/rails', github: 'manfe/refile'
 gem 'refile-mini_magick'
 
-#デバック
+# デバック
 gem 'pry-rails'
 gem 'pry-byebug'
 # MySQLを利用するための設定
-gem 'dotenv-rails'
 group :production do
   gem 'mysql2'
 end

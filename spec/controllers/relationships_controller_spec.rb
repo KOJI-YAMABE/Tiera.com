@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe RelationshipsController, type: :controller do
-
   describe "GET #follower" do
     it "returns http success" do
       get :follower
@@ -15,5 +14,4 @@ RSpec.describe RelationshipsController, type: :controller do
       expect(response).to have_http_status(:success)
     end
   end
-
 end

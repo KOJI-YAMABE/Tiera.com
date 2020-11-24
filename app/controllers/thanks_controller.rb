@@ -1,5 +1,5 @@
 class ThanksController < ApplicationController
-	before_action :authenticate_user!
+  before_action :authenticate_user!
 
   def create
     @post = Post.find(params[:post_id])
@@ -13,6 +13,7 @@ class ThanksController < ApplicationController
   end
 
   private
+
   def thank_params
     params.require(:post).permit(:user_id, :post_id)
   end

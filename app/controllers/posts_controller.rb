@@ -1,4 +1,3 @@
-
 class PostsController < ApplicationController
   def index
     @posts = Post.all.page(params[:page])
@@ -7,7 +6,7 @@ class PostsController < ApplicationController
     i = 0
     @posts.each do |post|
       if post.spot
-        lat_lng[i]={latitude: "#{post.spot.latitude}", longitude: "#{post.spot.longitude}"}
+        lat_lng[i] = { latitude: "#{post.spot.latitude}", longitude: "#{post.spot.longitude}" }
         i += 1
       end
     end
@@ -20,10 +19,10 @@ class PostsController < ApplicationController
       @post_comment = PostComment.new
       @post_comments = @post.post_comments.order(created_at: :desc)
       lat_lng = []
-      lat_lng[0]={latitude: "#{@post.spot.latitude}", longitude: "#{@post.spot.longitude}"}
+      lat_lng[0] = { latitude: "#{@post.spot.latitude}", longitude: "#{@post.spot.longitude}" }
       gon.lat_lng = lat_lng
-       # @post_tags = @post.tags
-     else
+    # @post_tags = @post.tags
+    else
       flash[:success] = "ここから先はログインが必要です！"
       redirect_to new_user_session_path
     end
@@ -45,29 +44,29 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     # tag_list = params[:post][:tag_name].split(nil)
-      if @post.save
-        # @post.save_tag(tag_list)
-        tags = Vision.get_image_data(@post.image)
-        tags.each do |tag|
-          @post.tags.create(tag_name: tag)
-        end
-        flash[:success] = "投稿が保存されました！"
-        redirect_to posts_path(@post)
-      else
-       render 'new'
+    if @post.save
+      # @post.save_tag(tag_list)
+      tags = Vision.get_image_data(@post.image)
+      tags.each do |tag|
+        @post.tags.create(tag_name: tag)
       end
+      flash[:success] = "投稿が保存されました！"
+      redirect_to posts_path(@post)
+    else
+      render 'new'
+    end
   end
 
   def update
     @post = Post.find(params[:id])
     # tag_list = params[:post][:tag_name].split(nil)
-      if @post.update(post_params)
-        # @post.save_tag(tag_list)
-        flash[:success] = "写真が更新されました！"
-        redirect_to @post
-      else
-        render 'edit'
-      end
+    if @post.update(post_params)
+      # @post.save_tag(tag_list)
+      flash[:success] = "写真が更新されました！"
+      redirect_to @post
+    else
+      render 'edit'
+    end
   end
 
   def destroy
@@ -77,7 +76,8 @@ class PostsController < ApplicationController
   end
 
   private
-   def post_params
-     params.require(:post).permit(:image, :garbage_count, :content, :join_amount, :published_at, spot_attributes: [:address, :latitude, :longitude])
-   end
+
+  def post_params
+    params.require(:post).permit(:image, :garbage_count, :content, :join_amount, :published_at, spot_attributes: [:address, :latitude, :longitude])
+  end
 end

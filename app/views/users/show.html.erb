@@ -1,4 +1,5 @@
 <div class="container padding-top">
+
   <div class="row">
     <div class="container">
       <h1>プロフィール</h1>
@@ -24,7 +25,7 @@
           <% end %>
         </div>
 
-        <!-- フォローボタン -->
+
         <% if current_user != @user %>
           <% if current_user.following?(@user) %>
             <%= link_to 'フォロー外す', user_relationships_path(@user), method: :delete, class: "btn btn-primary" %>
@@ -35,15 +36,15 @@
       </div>
     </div>
   </div>
+
   <div class="margin-top container">
     <div class="container">
-    <!-- タブ・メニュー -->
       <% if @user == current_user %>
         <ul class="nav nav-tabs">
           <li class="active"><a href="#sampleContentA" data-toggle="tab">投稿 <i class="fas fa-user"></i></a></li>
           <li><a href="#sampleContentB" data-toggle="tab">友達の投稿 <i class="fas fa-user-friends"></i></a></li>
         </ul>
-    <!-- タブ内容 -->
+
         <div class="tab-content margin-top">
           <div class="tab-pane active" id="sampleContentA">
             <% if @posts.exists? %>
@@ -72,7 +73,9 @@
       <% end %>
     </div>
   </div>
+
   <%= link_to posts_path do %>
     <i class="fa fa-arrow-circle-left fa-fw"></i> 投稿一覧へ
   <% end %>
+
 </div>

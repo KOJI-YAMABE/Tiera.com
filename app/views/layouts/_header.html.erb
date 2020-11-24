@@ -1,5 +1,5 @@
 <nav class="navbar navbar-default navbar-fixed-top heading">
-  <div class="container-fluid">
+  <div class="container-fuild">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed"data-toggle="collapse"data-target="#navbarEexample8">
         <span class="sr-only">Toggle navigation</span>
@@ -7,14 +7,19 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a href="/"><img src="<%= asset_path "logo1.png" %>" alt="logo" class="logo" /></a>
+        <%= link_to image_tag("logo1.png", class: "logo"), root_path %>
     </div>
 
-
-    <!-- <form method="get" action="#" class="search_container">
-      <input type="text" size="25" placeholder="キーワード検索">
-      <input type="submit" value="&#xf002">
-    </form> -->
+     <!-- 検索キーワード -->
+    <!-- <div class="search-container">
+      <div class="search-form text-center">
+        <div class="search-box">
+          <%= form_tag('/', method: :get, class:"search-form", placeholder:'',remote: true) do %>
+            <%= text_field_tag :body, :'', class: "search-input fa col-xs-6 col-xs-offset-3", placeholder: "\uF002", autocomplete:'off' %>
+          <% end %>
+        </div>
+      </div>
+    </div> -->
 
     <div class="collapse navbar-collapse" id="navbarEexample8">
       <ul class="nav navbar-nav pull-right nav-icon">
@@ -38,5 +43,6 @@
         <% end %>
       </ul>
     </div>
+
   </div>
 </nav>

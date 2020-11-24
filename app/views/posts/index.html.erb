@@ -1,9 +1,22 @@
-<div class="container">
+<div class="container-fluid">
 	<div class="row">
+
 		<div class="show">
 			<div class="show__maps center-block" id="show_map" style="height: 450px;"></div>
 		</div>
-	</div>
 
-	<%= render 'index',posts: @posts %>
+		<div class="col-xs-3">
+    	<div class="sidebar">
+    		<h2>拾ったゴミの合計</h2>
+    	</div>
+    	<div class="users">
+    		<h2>人気のユーザー</h2>
+    	</div>
+    </div>
+
+		<div class="col-xs-9">
+      <%= render 'index',posts: @posts %>
+    </div>
+
+	</div>
 </div>
