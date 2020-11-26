@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @posts = Post.all.page(params[:page])
     gon.my_private_key = ENV["GOOGLE_API_KEY"]
