@@ -32,7 +32,6 @@
 
 .post-comment {
 	margin: 7px;
-
 }
 
 .comment {
@@ -42,13 +41,9 @@
 .btn {
 	margin: 7px;
 }
+
 .show-area {
   color: #393F6A;
-}
-
-.img {
-  width: 300px;
-  height: 300px;
 }
 
 .label {
@@ -74,53 +69,59 @@
 .companyHr{
   margin-top: 15px;
 }
-// /* タブレット横置きサイズ（1024px）以下の際に適用される設定 */
-// @media screen and (max-width:1024px) {
-//   .img{
-//   	width: 150px;
-//   	height: 150px;
-//   }
-// }
 
-// /* スマートフォンサイズ（992px）以下の際に適用される設定 */
-// @media screen and (max-width:768px) {
-//   .map {
-//   	margin-top:10px;
-//   	margin-bottom:10px;
-//   	height: 280px;
-//   	width: 500px;
-//   }
-//   .img{
-//   	width: 200px;
-//   	height: 200px;
+.img {
+  width: 280px;
+  height: 280px;
+}
 
-//   }
-// }
+/* タブレット横置きサイズ（1024px）以下の際に適用される設定 */
+@media screen and (max-width:1024px) {
+  .img{
+  	width: 150px;
+  	height: 150px;
+  }
+}
 
-// @media screen and (max-width:640px) {
-//   .img{
-//     width: 160px;
-//     height: 160px;
-//   }
-// }
+/* スマートフォンサイズ（992px）以下の際に適用される設定 */
+@media screen and (max-width:768px) {
+  .map {
+  	margin-top:10px;
+  	margin-bottom:10px;
+  	height: 280px;
+  	width: 500px;
+  }
+  .img{
+  	width: 200px;
+  	height: 200px;
 
-// @media screen and (max-width:540px) {
-//   .img{
-//     width: 150px;
-//     height: 150px;
-//   }
-// }
-// /* スマートフォンサイズ（425px）以下の際に適用される設定 */
-// @media screen and (max-width:425px) {
-//   .img{
-//   	width: 150px;
-//   	height: 150px;
-//   }
-// }
+  }
+}
 
-// @media screen and (max-width:400px) {
-//   .img{
-//     width: 120px;
-//     height: 120px;
-//   }
-// }
+@media screen and (max-width:640px) {
+  .img{
+    width: 160px;
+    height: 160px;
+  }
+}
+
+@media screen and (max-width:540px) {
+  .img{
+    width: 150px;
+    height: 150px;
+  }
+}
+/* スマートフォンサイズ（425px）以下の際に適用される設定 */
+@media screen and (max-width:425px) {
+  .img{
+  	width: 150px;
+  	height: 150px;
+  }
+}
+
+@media screen and (max-width:400px) {
+  .img{
+    width: 120px;
+    height: 120px;
+  }
+}

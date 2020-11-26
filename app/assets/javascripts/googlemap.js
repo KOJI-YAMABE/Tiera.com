@@ -13,7 +13,7 @@ function initMap(){
   console.log(gon.lat_lng);
     map = new google.maps.Map(document.getElementById('show_map'), { //'show_map'を取得してマップを表示
       center: {lat: 35.6594666, lng: 139.7005536},
-      zoom: 7,
+      zoom: 3,
     });
     var lat_lng ;
     for(var i = 0; i <  gon.lat_lng.length; i++){
