@@ -15,8 +15,8 @@ Rails.application.routes.draw do
   end
 
   resources :posts do
-    resource :thanks, only: [:create, :destroy]
-    resource :post_comments, only: [:create, :destroy]
-    resource :tags, only: [:create, :destroy]
+    resources :thanks, only: [:create, :destroy]
+    resources :post_comments, only: [:create, :destroy]
+    resources :tags, only: [:create, :destroy]
   end
 end

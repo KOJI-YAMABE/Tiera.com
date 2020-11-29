@@ -1,0 +1,34 @@
+<div id="js-table-comment">
+  <p class="pull-left">
+    <i class="fas fa-comment"></i>
+      <%= post_comments.count %> コメント
+  </p>
+
+  <table class="table">
+    <% post_comments.each do |post_comment| %>
+      <tr id="comment-<%= post_comment.id %>">
+        <td>
+          <%= link_to user_path(post_comment.user) do %>
+            <%= attachment_image_tag(post_comment.user, :profile_image,  :fill, 70, 70, fallback: "no_image.jpg", class: "img-rounded pull-left profile-thumb") %>
+          <% end %>
+          <h5 class="post_comment-name"><%= post_comment.user.name %></h5>
+        </td>
+
+        <td>
+          <p><%= post_comment.comment %></p>
+        </td>
+
+        <td>
+          <div class="pull-right">
+            <%= time_ago_in_words(post_comment.created_at) %>前
+            <% if post_comment.user == current_user %>
+              <%= link_to post_post_comment_path(post_comment.post, post_comment), method: :delete, data: { confirm: '削除してよろしいですか？'}, remote: true do %>
+                <i class="far fa-trash-alt"></i>
+              <% end %>
+            <% end %>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>
