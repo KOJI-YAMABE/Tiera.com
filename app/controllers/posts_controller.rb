@@ -19,7 +19,7 @@ class PostsController < ApplicationController
     if user_signed_in?
       @post = Post.find(params[:id])
       @post_comment = PostComment.new
-      @post_comments = @post.post_comments.order(created_at: :desc)
+      @post_comments = @post.post_comments
       lat_lng = []
       lat_lng[0] = { latitude: "#{@post.spot.latitude}", longitude: "#{@post.spot.longitude}" }
       gon.lat_lng = lat_lng
