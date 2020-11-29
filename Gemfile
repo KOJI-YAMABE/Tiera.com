@@ -69,7 +69,6 @@ gem 'devise'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
-# gem "omniauth-rails_csrf_protection"
 
 # マップ
 gem 'gmaps4rails'
@@ -92,6 +91,7 @@ gem 'refile-mini_magick'
 # デバック
 gem 'pry-rails'
 gem 'pry-byebug'
+
 # MySQLを利用するための設定
 group :production do
   gem 'mysql2'
