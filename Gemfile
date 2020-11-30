@@ -68,7 +68,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
-gem 'omniauth-twitter'
 
 # マップ
 gem 'gmaps4rails'

@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :omniauthable, omniauth_providers: %i[facebook twitter google_oauth2]
+         :omniauthable, omniauth_providers: %i[facebook google_oauth2]
 
   has_many :posts, dependent: :destroy
   has_many :post_comments, dependent: :destroy
@@ -15,12 +15,13 @@ class User < ApplicationRecord
 
   attachment :profile_image, destroy: false
 
-  validates :name, length: { maximum: 20, minimum: 2 }, uniqueness: true
+  validates :name, length: { maximum: 20, minimum: 2 }, uniqueness: true, unless: :uid?
   validates :introduction, length: { maximum: 50 }
 
   # omniauthのコールバック時に呼ばれるメソッド
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.name = auth.info.name
       user.email = auth.info.email
       user.password = Devise.friendly_token[0,20]
     end
