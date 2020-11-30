@@ -207,7 +207,6 @@ GEM
     nio4r (2.5.4)
     nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
-    oauth (0.5.4)
     oauth2 (1.4.4)
       faraday (>= 0.8, < 2.0)
       jwt (>= 1.0, < 3.0)
@@ -223,15 +222,9 @@ GEM
       jwt (>= 2.0)
       omniauth (>= 1.1.1)
       omniauth-oauth2 (>= 1.6)
-    omniauth-oauth (1.1.0)
-      oauth
-      omniauth (~> 1.0)
     omniauth-oauth2 (1.7.0)
       oauth2 (~> 1.4)
       omniauth (~> 1.9)
-    omniauth-twitter (1.4.0)
-      omniauth-oauth (~> 1.1)
-      rack
     orm_adapter (0.5.0)
     parallel (1.20.1)
     parser (2.7.2.0)
@@ -426,7 +419,6 @@ DEPENDENCIES
   mysql2
   omniauth-facebook
   omniauth-google-oauth2
-  omniauth-twitter
   pry-byebug
   pry-rails
   puma (~> 3.11)
