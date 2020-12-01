@@ -33,6 +33,9 @@ class PostsController < ApplicationController
   def edit
     @post = Post.find(params[:id])
     gon.my_private_key = ENV["GOOGLE_API_KEY"]
+    if current_user.id != @book.user_id
+      redirect_to books_path
+    end
   end
 
   def new
