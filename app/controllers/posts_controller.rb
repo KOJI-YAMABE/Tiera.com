@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!
+   before_action :authenticate_user!, except:[:index, :show]
 
   def index
     @posts = Post.all.page(params[:page])
@@ -23,7 +23,6 @@ class PostsController < ApplicationController
       lat_lng = []
       lat_lng[0] = { latitude: "#{@post.spot.latitude}", longitude: "#{@post.spot.longitude}" }
       gon.lat_lng = lat_lng
-    # @post_tags = @post.tags
     else
       flash[:success] = "ここから先はログインが必要です！"
       redirect_to new_user_session_path
@@ -40,7 +39,6 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    # @tag_list = @post.tags.pluck(:tag_name).split(nil)
     @post.build_spot
     gon.my_private_key = ENV["GOOGLE_API_KEY"]
   end
@@ -48,9 +46,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-    # tag_list = params[:post][:tag_name].split(nil)
     if @post.save
-      # @post.save_tag(tag_list)
       tags = Vision.get_image_data(@post.image)
       tags.each do |tag|
         @post.tags.create(tag_name: tag)
@@ -64,9 +60,7 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    # tag_list = params[:post][:tag_name].split(nil)
     if @post.update(post_params)
-      # @post.save_tag(tag_list)
       flash[:success] = "写真が更新されました！"
       redirect_to @post
     else

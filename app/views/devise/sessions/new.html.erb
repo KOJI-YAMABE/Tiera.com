@@ -23,6 +23,8 @@
     <div class="row omb_row-sm-offset-3">
       <div class="col-xs-12 col-sm-6">  
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <%= flash[:error] %>
+          <span class="help-block"></span>
           <div class="input-group">
             <span class="input-group-addon"><i class="fas fa-envelope"></i></span>
             <%= f.email_field :email, autofocus: true, placeholder: "メールアドレス",  autocomplete: "email", class: "form-control" %>
@@ -35,7 +37,7 @@
           </div>
           <span class="help-block"></span>
 
-            <%= f.submit "ログイン", class: "btn btn-lg btn-primary btn-block"%>
+          <%= f.submit "ログイン", class: "btn btn-lg btn-primary btn-block"%>
         <% end %>
       </div>
     </div>

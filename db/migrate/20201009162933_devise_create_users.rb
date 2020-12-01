@@ -11,7 +11,6 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :phone_number
       t.string :introduction
       t.boolean :user_type
-      t.boolean :is_deleted, default: false
       ## Recoverable
       t.string   :reset_password_token
       t.datetime :reset_password_sent_at

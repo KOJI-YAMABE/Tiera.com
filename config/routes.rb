@@ -1,22 +1,26 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+  devise_for :users, controllers: {
+    omniauth_callbacks: 'users/omniauth_callbacks',
+    sessions:           'users/sessions'
+    # passwords:          'passwords',
+    # registrations:      'registrations'
+  }
 
   root'home#top'
   get 'home/top' => 'home#top'
-  get 'search/search'
 
-  resources :users, only: [:index, :show, :edit, :update, :withdraw] do
+  resources :users, only: [:index, :show, :edit, :update] do
     resource :relationships, only: [:create, :destroy]
     get 'follows' => 'relationships#follower', as: 'follows'
     get 'followers' => 'relationships#followed', as: 'followers'
     member do
-      put 'users/withdraw' => 'users#withdraw'
+      put 'users/withdraw' => 'users#withdraw', as: 'withdraw'
     end
   end
 
   resources :posts do
-    resources :thanks, only: [:create, :destroy]
+    resource :thanks, only: [:create, :destroy]
     resources :post_comments, only: [:create, :destroy]
-    resources :tags, only: [:create, :destroy]
+    resource :tags, only: [:create, :destroy]
   end
 end

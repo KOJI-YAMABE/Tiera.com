@@ -30,7 +30,7 @@
 				</tr>
 				<tr>
 					<td colspan="2"><%= f.submit "編集内容を保存する", class: "btn btn-primary" %></td>
-					<td><%= link_to "退会する", users_withdraw_user_path(current_user), method: :put, "data-confirm" => "本当にこのアカウントを削除しますか？　※投稿されたデータおよび個人情報が全て削除されます。",  class: "btn btn-danger" %></td>
+					<td><%= link_to "退会する", withdraw_user_path(current_user), method: :put, "data-confirm" => "本当にこのアカウントを削除しますか？　※投稿されたデータおよび個人情報が全て削除されます。",  class: "btn btn-danger" %></td>
 				</tr>
 			</tbody>
 		</table>
