@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except:[:show]
 
   def show
     @user = User.find(params[:id])
@@ -11,9 +11,9 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
-    # if current_user != @user
-    #   redirect_to user_path(current_user)
-    # end
+    if current_user != @user
+      redirect_to user_path(current_user)
+    end
   end
 
   def update
@@ -27,8 +27,7 @@ class UsersController < ApplicationController
 
   def withdraw
     @user = User.find(params[:id])
-    # is_deletedカラムにフラグを立てる
-    @user.update(is_active: false)
+    @user.update(is_deleted: true)
     reset_session
     redirect_to root_path
   end
@@ -36,6 +35,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :introduction, :profile_image, :phone_number, :user_type, :is_deleted)
+    params.require(:user).permit(:name, :email, :introduction, :profile_image, :phone_number, :user_type)
   end
 end

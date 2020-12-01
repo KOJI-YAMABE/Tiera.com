@@ -18,6 +18,11 @@ class User < ApplicationRecord
   validates :name, length: { maximum: 20, minimum: 2 }, uniqueness: true, unless: :uid?
   validates :introduction, length: { maximum: 50 }
 
+  # is_deletedがfalseの場合は有効会員(ログイン可能)
+  def active_for_authentication?
+    super && (self.is_deleted === false)
+  end
+
   # omniauthのコールバック時に呼ばれるメソッド
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
