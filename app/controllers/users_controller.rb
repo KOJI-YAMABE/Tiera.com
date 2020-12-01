@@ -11,6 +11,9 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    # if current_user != @user
+    #   redirect_to user_path(current_user)
+    # end
   end
 
   def update
@@ -27,7 +30,6 @@ class UsersController < ApplicationController
     # is_deletedカラムにフラグを立てる
     @user.update(is_active: false)
     reset_session
-    flash[:notice] = "ありがとうございました。またのご利用を心よりお待ちしております。"
     redirect_to root_path
   end
 

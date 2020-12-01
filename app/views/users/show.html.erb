@@ -20,7 +20,7 @@
           <div>
             <p>フォロー：<%= link_to @user.follower.count, user_follows_path(@user) %>　フォロワー：<%= link_to @user.followed.count, user_followers_path(@user) %></p>
           </div>
-          <% if @user == current_user %>
+          <% if current_user == @user %>
             <%= link_to "プロフィールを編集する", edit_user_path(@user), class: "btn btn-primary" %>
           <% end %>
         </div>

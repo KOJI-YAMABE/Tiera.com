@@ -82,6 +82,7 @@ gem 'bootstrap-sass'
 gem 'jquery-rails'
 gem 'kaminari', '~>1.1.1'
 gem 'font-awesome-sass'
+gem 'rails-i18n'
 
 # 画像投稿
 gem 'refile', require: 'refile/rails', github: 'manfe/refile'
