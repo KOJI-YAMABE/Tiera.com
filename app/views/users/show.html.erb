@@ -1,5 +1,4 @@
 <div class="container padding-top">
-
   <div class="row">
     <div class="container">
       <h1>プロフィール</h1>
@@ -24,7 +23,6 @@
             <%= link_to "プロフィールを編集する", edit_user_path(@user), class: "btn btn-primary" %>
           <% end %>
         </div>
-
 
         <% if current_user != @user %>
           <% if current_user.following?(@user) %>
@@ -68,14 +66,9 @@
         </div>
       <% else %>
         <div class="row">
-            <%= render 'posts/index',posts: @posts %>
+          <%= render 'posts/index',posts: @posts %>
         </div>
       <% end %>
     </div>
   </div>
-
-  <%= link_to posts_path do %>
-    <i class="fa fa-arrow-circle-left fa-fw"></i> 投稿一覧へ
-  <% end %>
-
 </div>
