@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :omniauthable, omniauth_providers: %i[facebook google_oauth2]
+         :omniauthable, omniauth_providers: %i(facebook google_oauth2)
 
   has_many :posts, dependent: :destroy
   has_many :post_comments, dependent: :destroy
@@ -16,11 +16,11 @@ class User < ApplicationRecord
   attachment :profile_image, destroy: false
 
   validates :name, length: { maximum: 20, minimum: 2 }, uniqueness: true, unless: :uid?
-  validates :introduction, length: { maximum: 50 }
+  validates :introduction, length: { maximum: 100 }
 
   # is_deletedがfalseの場合は有効会員(ログイン可能)
   def active_for_authentication?
-    super && (self.is_deleted === false)
+    super && (is_deleted === false)
   end
 
   # omniauthのコールバック時に呼ばれるメソッド
