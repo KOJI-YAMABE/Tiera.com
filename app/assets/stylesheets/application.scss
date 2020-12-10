@@ -22,34 +22,38 @@
  * {
   margin: 0;
   padding: 0;
-  color: #6c6b6b;
 }
 
 body {
- font-family: 'Noto Sans JP', sans-serif;
- padding-top: 80px;
- color: #5e5e5e;
- // background-color: #EEEEEE;
- &:visited {
-  color: #5e5e5e;
-}
-a {
-  text-align: center;
-  color: #5e5e5e;
-}
-&:hover {
-  text-decoration: none;
-}
+   font-family: 'Noto Sans JP', sans-serif;
+   padding-top: 80px;
+   color: #5e5e5e;
+   &:visited {
+     color: #5e5e5e;
+  }
+  a {
+    // text-align: center;
+    // color: #5e5e5e;
+  }
+  &:hover {
+    // text-decoration: none;
+  }
 }
 
-// #back {
-//   position: fixed;
-//   right: 20px;
-//   bottom: 20px;
-// }
-// #back img {
-//   width: 40px;
-// }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+
+p {
+  line-height: 1.75;
+}
 
 .margin {
   margin-top: 15px;
@@ -220,15 +224,14 @@ footer .copyright {
 }
 
 .omb_login .omb_socialButtons a {
-  color: white; // In yourUse @body-bg 
+  color: white;
   opacity:0.9;
 }
 .omb_login .omb_socialButtons a:hover {
   color: white;
-  opacity:1;      
+  opacity:1;
 }
 .omb_login .omb_socialButtons .omb_btn-facebook {background: #3b5998;}
-.omb_login .omb_socialButtons .omb_btn-twitter {background: #00aced;}
 .omb_login .omb_socialButtons .omb_btn-google {background: #c32f10;}
 
 
@@ -259,19 +262,19 @@ footer .copyright {
 }
 /*------------ページネーション------------*/
 .pagination>li>a {
-  border: none;     /*枠線をなくす*/
-  color: #696969;   /*文字の色を変える*/
+  border: none;
+  color: #696969;
 }
 
 /* 表示しているページ番号のデザイン */
 .pagination>.active>a {
-  background: #93c9ff;     /*背景の色を変える*/
-  border-radius: 15px;     /*角を丸くする*/
+  background: #93c9ff;
+  border-radius: 15px;
 }
 
 /*ホバー時のデザイン*/
 .pagination>li>a:hover {
-  border-radius: 15px;    /*角を丸くする*/
+  border-radius: 15px;
 }
 
 /*------------画像------------*/

@@ -1,21 +1,16 @@
 a.top-button{
   display:inline-block;
-
   font:normal normal 300 1.3em 'Open Sans';
   margin:5px;
   @media (min-width: 650px) {
     font:normal normal 300 1.9em 'Open Sans';
     margin:20px;
   }
-
-  color:#fed136;
+  color: #fed136;
   background-color:transparent;
   border:1px solid #fed136;
   border-radius:100px;
-
   padding: .5em 2em;
-
-
   background-size: 200% 100%;
   background-image: linear-gradient(to right, transparent 50%, #fed136 50%);
   transition: background-position .3s cubic-bezier(0.19, 1, 0.22, 1) .1s, color .5s ease 0s, background-color .5s ease;
@@ -31,14 +26,11 @@ a.index-button{
   display:inline-block;
   font:normal normal 300 1.9em 'Open Sans';
   margin:20px;
-
   color:#6c757d;
   brackground-color:transparent;
   border:1px solid #6c757d;
   border-radius:100px;
-
   padding: .5em 2em;
-
   background-size: 200% 100%;
   background-image: linear-gradient(to right, transparent 50%, #fed136 50%);
   transition: background-position .3s cubic-bezier(0.19, 1, 0.22, 1) .1s, color .5s ease 0s, background-color .5s ease;
@@ -48,36 +40,6 @@ a.index-button:hover{
   background-color:#fed136;
   background-position: -100% 100%;
   border:1px solid #fed136;
-}
-
-.text-muted-des{
-  text-align: left;
-}
-
-/* 以下テンプレートagencyのcss*/
-
-body {
-  overflow-x: hidden;
-  font-family: 'Roboto Slab', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  padding-top:3.3rem;
-}
-
-p {
-  line-height: 1.75;
-}
-
-.text-primary {
-  color: #fed136 !important;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: 700;
-  font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 section {
@@ -102,7 +64,7 @@ section h3.section-subheading {
 
 @media (min-width: 768px) {
   section {
-    padding: 50px 0;
+    padding: 100px 0;
   }
 }
 
@@ -149,110 +111,41 @@ img::-moz-selection {
   background: transparent;
 }
 
-#mainNav {
-  background-color: #212529;
-}
-
-#mainNav .navbar-toggler {
-  font-size: 12px;
-  right: 0;
-  padding: 13px;
-  text-transform: uppercase;
-  color: #fed136;
-  // border: 0;
-  border:1px solid #fed136;
-  // background-color: #fed136;
-  font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
-
-#mainNav .navbar-brand {
-  color: #fed136;
-  font-family: 'Kaushan Script', 'Helvetica Neue', Helvetica, Arial, cursive;
-  padding: .7rem
-}
-
-#mainNav .navbar-brand.active, #mainNav .navbar-brand:active, #mainNav .navbar-brand:focus, #mainNav .navbar-brand:hover {
-  color: #fec503;
-}
-
-#mainNav .navbar-nav .nav-item .nav-link {
-  font-size: 90%;
-  font-weight: 400;
-  padding: 0.75em 0;
-  letter-spacing: 1px;
-  color: white;
-  font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
-
-#mainNav .navbar-nav .nav-item .nav-link.active, #mainNav .navbar-nav .nav-item .nav-link:hover {
-  color: #fed136;
-}
-
 @media (min-width: 992px) {
-  // 画面サイズが広い時にnavbarの背景が消えて太さが太くなる挙動をここをコメントアウトして制御
-  // #mainNav {
-  //   padding-top: 25px;
-  //   padding-bottom: 25px;
-  //   -webkit-transition: padding-top 0.3s, padding-bottom 0.3s;
-  //   -moz-transition: padding-top 0.3s, padding-bottom 0.3s;
-  //   transition: padding-top 0.3s, padding-bottom 0.3s;
-  //   border: none;
-  //   background-color: transparent;
-  // }
-  #mainNav .navbar-brand {
-    font-size: 1.75em;
-    -webkit-transition: all 0.3s;
-    -moz-transition: all 0.3s;
-    transition: all 0.3s;
+  header.masthead {
+    text-align: center;
+    color: white;
+    background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)),image-url("globe.jpg");
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
   }
-  #mainNav .navbar-nav .nav-item .nav-link {
-    padding: 1.1em 1em !important;
+
+  header.masthead .intro-text {
+    padding-top: 150px;
+    padding-bottom: 100px;
   }
-  #mainNav.navbar-shrink {
-    padding-top: 0;
-    padding-bottom: 0;
-    background-color: #212529;
+
+  header.masthead .intro-text .intro-lead-in {
+    font-size: 22px;
+    font-style: italic;
+    line-height: 22px;
+    margin-bottom: 25px;
+    font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   }
-  #mainNav.navbar-shrink .navbar-brand {
-    font-size: 1.25em;
-    padding: 12px 0;
+
+  header.masthead .intro-text .intro-heading {
+    font-size: 28px;
+    font-weight: 700px;
+    line-height: 50px;
+    margin-bottom: 25px;
+    font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   }
 }
-
-header.masthead {
-  text-align: center;
-  color: white;
-  background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)),image-url("globe.jpg");
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-position: center center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-
-header.masthead .intro-text {
-  padding-top: 150px;
-  padding-bottom: 100px;
-}
-
-header.masthead .intro-text .intro-lead-in {
-  font-size: 22px;
-  font-style: italic;
-  line-height: 22px;
-  margin-bottom: 25px;
-  font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
-
-header.masthead .intro-text .intro-heading {
-  font-size: 28px;
-  font-weight: 700;
-  line-height: 50px;
-  margin-bottom: 25px;
-  font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
-
 
 @media (min-width: 650px) {
   header.masthead .intro-text {
@@ -319,13 +212,10 @@ ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons l
   background-color: #fed136;
 }
 
-// navbar上部固定に伴い、上部に隙間作るため
-
 .top-big{
   margin: 1rem;
 }
 
-// トップページに掲載の投稿
 .top-post{
   text-align: left;
 }
@@ -336,17 +226,17 @@ ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons l
 }
 
 .intro_box {
-    overflow: solid;
-    align-items: center;
-    margin-top: 20px;
+  overflow: solid;
+  align-items: center;
+  margin-top: 20px;
 }
 
 .intro_txt_box {
-    box-shadow: 0 0 10px 10px #eceff1;
-    padding: 20px 20px 20px 50px;
-    background-color: #fff;
-    border-radius: 15px;
-    z-index: 20;
+  box-shadow: 0 0 10px 10px #eceff1;
+  padding: 20px 20px 20px 50px;
+  background-color: #fff;
+  border-radius: 15px;
+  z-index: 20;
 }
 
 .txt_color {
