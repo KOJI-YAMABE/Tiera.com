@@ -66,6 +66,32 @@
   margin: 10px;
 }
 
+.new-posts {
+  border: thin solid gray;
+  border-radius: 1em;
+  box-shadow: 2px 2px 2px rgba(0,0,0,0.4);
+  background-color: white;
+  margin: 50px 15px;
+}
+
+.title {
+  border-bottom: thin solid gray;
+  padding: 0 0 15px 10px;
+}
+
+.post-info {
+  display: inline-block;
+}
+
+.posts-index {
+  border-bottom: thin solid gray;
+  padding: 10px;
+}
+
+.post-user-content {
+  padding-top: 20px;
+}
+
 .companyHr{
   margin-top: 15px;
 }
@@ -73,6 +99,9 @@
 .img {
   width: 280px;
   height: 280px;
+}
+.img-post {
+  vertical-align: middle;
 }
 
 /* タブレット横置きサイズ（1024px）以下の際に適用される設定 */

@@ -6,15 +6,12 @@
           <%= attachment_image_tag(user, :profile_image, :fill, 50, 50, fallback: "no-image-mini.jpg") %>
   			  <%= user.name %>
   		  </td>
-
   			<td>
           <%= user.introduction %>
         </td>
-
   			<td>
           フォロー数：<%= user.follower.count %>
         </td>
-
   			<td>
           フォロワー数：<%= user.followed.count %>
         </td>
@@ -27,7 +24,6 @@
             <% end %>
           <% end %>
         </td>
-
   			<td>
           <%= link_to "詳細", user_path(user), class: "user_#{user.id}" %>
         </td>

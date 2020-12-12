@@ -1,21 +1,20 @@
 <% posts.each do |post| %>
-  <div class="col-lg-3 col-md-4 col-sm-4 col-xs-5">
-    <div class="show-pic">
-      <%= link_to attachment_image_tag(post, :image, fallback: "no_image.jpg", class: "img-rounded img"), post_path(post) %>
-    </div>
-    <div class="col-xs-12">
-      <div class="post-time pull-right">
-        <%= time_ago_in_words(post.created_at) %>前
-      </div>
-      <div class="post-user">
-        <%= link_to user_path(post.user) do %>
-          <%= attachment_image_tag(post.user, :profile_image,  :fill, 60, 60, fallback: "no_image.jpg", class: "img-circle") %>
-          <%= post.user.name %>
-        <% end %>
-      </div>
-      <div class="post-content">
-        <p><%= post.content.truncate(13) %></p>
-      </div>
-    </div>
+<div class="posts-index">
+  <div class="img-post">
+    <%= link_to post_path(post) do %>
+      <%= attachment_image_tag post, :image, size: '120x120', class: "img-rounded"%>
+    <% end %>
   </div>
+  <div class="post-info">
+    <div class="post-user">
+      <%= link_to user_path(post.user) do %>
+        <%= attachment_image_tag(post.user, :profile_image, size:'50x50', fallback: "no_image.jpg", size:'50x50', class: "rounded-circle")%>
+        <strong class="user-name" ><%= post.user.name %></strong>
+      <% end %>
+        <span><%= time_ago_in_words(post.created_at) %>前</span>
+    </div>
+    <p class="post-user-content"><%= post.content.truncate(20) %></p>
+  </div>
+</div>
 <% end %>
+
