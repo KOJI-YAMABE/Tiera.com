@@ -24,6 +24,7 @@
     <div class="collapse navbar-collapse" id="navbarEexample8">
       <ul class="nav navbar-nav pull-right nav-icon">
         <% if user_signed_in? %>
+          <li><%= link_to "", posts_path, class: "fas fa-globe icon" %></li>
           <li><%= link_to '', new_post_path, class: "far fa-plus-square icon" %></li>
 
           <li class="btn dropdown-toggle nav-dropdown" type="button" data-toggle="dropdown">
@@ -38,6 +39,7 @@
 
 
         <% else %>
+          <li><%= link_to "", posts_path, class: "fas fa-globe icon" %></li>
           <li><%= link_to '', new_user_session_path, class: "fas fa-sign-in-alt icon" %></li>
           <li><%= link_to '', new_user_registration_path, class: "fas fa-edit icon" %></li>
         <% end %>

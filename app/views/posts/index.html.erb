@@ -1,22 +1,18 @@
-<div class="container-fluid">
-	<div class="row">
-		<div class="show">
-			<div class="show__maps center-block" id="show_map" style="height: 450px;"></div>
-		</div>
-		<div class="col-sm-2 hidden-xs sidebar">
-    	<div class="total_garbage">
-    		<h3>ゴミの合計</h3>
-        <div class="garbage">
-        </div>
-    	</div>
-    	<div class="users">
-    		<h3>人気のユーザー</h3>
-        <div class="user">
-        </div>
-    	</div>
+<div class="container">
+  <div class="row">
+    <div class="show">
+      <div class="show__maps center-block" id="show_map" style="height: 450px;"></div>
     </div>
-		<div class="col-sm-10">
-      <%= render 'index',posts: @posts %>
+    <div class="col-md-9">
+      <div class="new-posts">
+        <h2 class="title">新着投稿</h2>
+        <%= render 'index',posts: @posts %>
+      </div>
     </div>
-	</div>
+    <div class="col-md-3">
+      <div class="info my-3 p-3 bg-white rounded shadow-sm">
+        <h2 class="border-bottom border-gray pb-2 mb-0">ゴミの合計</h2>
+      </div>
+    </div>
+  </div>
 </div>
