@@ -1,6 +1,10 @@
-<h2>フォロー</h2>
-<% if @users.count > 0 %>
-  <%= render '/users/index', users: @users %>
-<% else %>
-  <p>ユーザーはいません</p>
-<% end %>
+<div class="container">
+  <div class="row">
+    <h2>フォロー</h2>
+    <% if @users.count > 0 %>
+      <%= render '/users/index', user: @users %>
+    <% else %>
+      <p>ユーザーはいません</p>
+    <% end %>
+  </div>
+</div>

@@ -1,33 +1,16 @@
-<table class="table">
-	<tbody>
-	  <% users.each do |user| %>
-  		<tr>
-  			<td>
-          <%= attachment_image_tag(user, :profile_image, :fill, 50, 50, fallback: "no-image-mini.jpg") %>
-  			  <%= user.name %>
-  		  </td>
-  			<td>
-          <%= user.introduction %>
-        </td>
-  			<td>
-          フォロー数：<%= user.follower.count %>
-        </td>
-  			<td>
-          フォロワー数：<%= user.followed.count %>
-        </td>
-        <td>
-          <% if user != current_user %>
-            <% if current_user.following?(user) %>
-              <%= link_to 'フォロー外す', user_relationships_path(user.id), method: :delete %>
-            <% else %>
-              <%= link_to 'フォローする', user_relationships_path(user.id), method: :POST %>
-            <% end %>
-          <% end %>
-        </td>
-  			<td>
-          <%= link_to "詳細", user_path(user), class: "user_#{user.id}" %>
-        </td>
-		  </tr>
-	  <% end %>
-	</tbody>
-</table>
+<% user.each do |user| %>
+<div class="media text-muted pt-2 border-bottom border-gray">
+  <%= link_to user_path(user) do %>
+    <%= attachment_image_tag(user, :profile_image, size:'80x80', fallback: "no_image.jpg", size:'80x80' , class: "rounded-circle")%>
+  <% end %>
+  <div class="post-info">
+    <div class="post-user">
+      <strong class="user-name"><%= user.name %></strong>
+      <%= render "users/follow", user: user %>
+    </div>
+    <div class="mt-1 ml-1">
+    <span class="mr-1">フォロー：<%= link_to user.follower.count, user_follows_path(user) %></span> | <span class="mr-1">フォロワー：<%= link_to user.followed.count, user_followers_path(user) %></span>
+    </div>
+  </div>
+</div>
+<% end %>

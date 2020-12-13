@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, except: [:show]
+  before_action :set_user
 
   def show
-    @user = User.find(params[:id])
     @posts = @user.posts.page(params[:page]).per(4)
     @posts_all = Post.all
     @follow_users = @user.following_user
@@ -10,14 +10,12 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
     if current_user != @user
       redirect_to user_path(current_user)
     end
   end
 
   def update
-    @user = User.find(params[:id])
     if @user.update(user_params)
       redirect_to user_path(@user)
     else
@@ -26,7 +24,6 @@ class UsersController < ApplicationController
   end
 
   def withdraw
-    @user = User.find(params[:id])
     @user.update(is_deleted: true)
     reset_session
     redirect_to root_path
@@ -36,5 +33,9 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :email, :introduction, :profile_image, :phone_number, :user_type)
+  end
+
+  def set_user
+    @user = User.find(params[:id])
   end
 end
