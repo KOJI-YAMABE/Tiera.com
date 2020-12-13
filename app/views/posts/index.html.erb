@@ -3,19 +3,17 @@
     <div class="show">
       <div class="show__maps center-block" id="show_map" style="height: 450px;"></div>
     </div>
-    <div class="col-md-9">
+    <div class="col-md-8">
       <div class="info">
         <h2 class="title">新着投稿</h2>
         <%= render 'index',posts: @posts %>
         <%= paginate @posts %>
       </div>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-4">
       <div class="info">
         <h2 class="title">新着ユーザー</h2>
-        <div class="garbage-counts">
-          <h3>ゴミの合計</h3>
-         <i clss="glyphicon glyphicon-trash"></i>
+        <%= render 'users/index',user: @user %>
         </div>
       </div>
     </div>
