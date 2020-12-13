@@ -7,11 +7,16 @@
       <div class="info">
         <h2 class="title">新着投稿</h2>
         <%= render 'index',posts: @posts %>
+        <%= paginate @posts %>
       </div>
     </div>
     <div class="col-md-3">
       <div class="info">
-        <h2 class="title">ゴミの合計</h2>
+        <h2 class="title">新着ユーザー</h2>
+        <div class="garbage-counts">
+          <h3>ゴミの合計</h3>
+         <i clss="glyphicon glyphicon-trash"></i>
+        </div>
       </div>
     </div>
   </div>
