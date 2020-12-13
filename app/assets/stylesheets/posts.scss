@@ -1,14 +1,10 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
-
-
 .resultTableContent{
   border-radius: 4px;
   background-color: #dbebfb;
   padding: 0px 10px 0px 10px;
-
 }
 
 .resultArea{
@@ -16,11 +12,9 @@
   text-align: center;
 }
 
-
 .hidden{
   display: none;
 }
-
 
 .map {
 	margin-top:15px 0;
@@ -62,10 +56,6 @@
 }
 
 // index ページ
-.show-pic {
-  margin: 10px;
-}
-
 .info {
   border: thin solid gray;
   border-radius: 1em;

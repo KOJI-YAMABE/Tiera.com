@@ -40,7 +40,11 @@
   </div>
 
   <div class="flex align-center ">
-    <%= f.submit "投稿" , class: "btn btn-primary" %>
+    <% if request.path_info == new_post_path %>
+      <%= f.submit "投稿", class: "btn btn-primary"%>
+    <% else %>
+      <%= f.submit "更新", class: "btn btn-primary" %>
+    <% end %>
   </div>
 <% end %>
 

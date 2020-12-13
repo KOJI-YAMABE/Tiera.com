@@ -9,6 +9,8 @@
         <%= attachment_image_tag(post.user, :profile_image, size:'40x40', fallback: "no_image.jpg", size:'40x40', class: "rounded-circle")%>
         <strong class="user-name" ><%= post.user.name %></strong>
       <% end %>
+        <span><%= post.created_at.strftime('%Y/%m/%d') %></span>
+        <i class="far fa-clock"></i>
         <span><%= time_ago_in_words(post.created_at) %>前</span>
     </div>
     <p class="post-user-content"><%= post.content.truncate(20) %></p>
