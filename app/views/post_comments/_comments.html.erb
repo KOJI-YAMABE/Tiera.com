@@ -15,6 +15,7 @@
         </td>
         <td>
           <div class="pull-right">
+            <i class="far fa-clock"></i>
             <%= time_ago_in_words(post_comment.created_at) %>前
             <% if post_comment.user == current_user %>
               <%= link_to post_post_comment_path(post_comment.post, post_comment), method: :delete, data: { confirm: '削除してよろしいですか？'}, remote: true do %><i class="far fa-trash-alt"></i>

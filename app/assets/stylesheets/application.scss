@@ -27,6 +27,7 @@
 body {
    font-family: 'Noto Sans JP', sans-serif;
    padding-top: 80px;
+   background-color: #F0F8FF;
    color: #5e5e5e;
    &:visited {
      color: #5e5e5e;
@@ -119,13 +120,13 @@ li .icon {
   margin-top: 15px;
 }
 
-// .navbar {
-//   background-color: #fff;
-// }
+.navbar {
+  background-color: #FFF;
+}
 
-// .navbar-default .navbar-nav li a {
-//   color:#393F6A;
-// }
+.navbar-default .navbar-nav li a {
+  color:#393F6A;
+}
 
 // // 検索
 // .search_container{

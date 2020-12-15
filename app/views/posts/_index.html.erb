@@ -1,9 +1,9 @@
 <% posts.each do |post| %>
-<div class="posts-index">
+<div class="index">
   <%= link_to post_path(post) do %>
     <%= attachment_image_tag post, :image, size: '110x115', class: "img-rounded"%>
   <% end %>
-  <div class="post-info">
+  <div class="index-info">
     <div class="post-user">
       <%= link_to user_path(post.user) do %>
         <%= attachment_image_tag(post.user, :profile_image, size:'40x40', fallback: "no_image.jpg", size:'40x40', class: "rounded-circle")%>
