@@ -1,7 +1,7 @@
 <% user.each do |user| %>
 <div class="index">
   <%= link_to user_path(user) do %>
-    <%= attachment_image_tag(user, :profile_image, size:'80x80', fallback: "no_image.jpg", size:'80x80' , class: "rounded-circle")%>
+    <%= attachment_image_tag(user, :profile_image, size:'80x80', fallback: "no_image.jpg", size:'80x80' , class: "img-rounded-opacity")%>
   <% end %>
   <div class="index-info">
     <div class="post-user">
