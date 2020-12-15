@@ -43,10 +43,11 @@
 
       <div class="col-md-8 col-md-offset-2">
         <%= render 'post_comments/comments', post_comments: @post_comments %>
-
-        <%= form_with(model: [@post, @post_comment], remote: true) do |f| %>
-          <%= f.text_area :comment, rows:'5', class: "form-control",placeholder: "コメントを投稿しましょう！" %>
-          <%= f.submit "送信", class: "btn btn-primary mt-20 pull-right" %>
+        <% if user_signed_in? %>
+          <%= form_with(model: [@post, @post_comment], remote: true) do |f| %>
+            <%= f.text_area :comment, rows:'5', class: "form-control",placeholder: "コメントを投稿しましょう！" %>
+            <%= f.submit "送信", class: "btn btn-primary mt-20 pull-right" %>
+          <% end %>
         <% end %>
       </div>
 
