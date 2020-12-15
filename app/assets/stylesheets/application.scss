@@ -88,6 +88,10 @@ p {
 
 .img-rounded {
   border-radius: 6px;
+}
+
+.img-rounded-opacity {
+  border-radius: 6px;
   &:hover {
     opacity: 0.6;
   }
