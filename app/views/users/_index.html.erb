@@ -1,15 +1,15 @@
 <% user.each do |user| %>
-<div class="media text-muted pt-2 border-bottom border-gray">
+<div class="index">
   <%= link_to user_path(user) do %>
     <%= attachment_image_tag(user, :profile_image, size:'80x80', fallback: "no_image.jpg", size:'80x80' , class: "rounded-circle")%>
   <% end %>
-  <div class="post-info">
+  <div class="index-info">
     <div class="post-user">
       <strong class="user-name"><%= user.name %></strong>
       <%= render "users/follow", user: user %>
     </div>
-    <div class="mt-1 ml-1">
-    <span class="mr-1">フォロー：<%= link_to user.follower.count, user_follows_path(user) %></span> | <span class="mr-1">フォロワー：<%= link_to user.followed.count, user_followers_path(user) %></span>
+    <div class="follows">
+      <span>フォロー：<%= link_to user.follower.count, user_follows_path(user) %></span> | <span>フォロワー：<%= link_to user.followed.count, user_followers_path(user) %></span>
     </div>
   </div>
 </div>
