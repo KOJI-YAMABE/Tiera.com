@@ -1,4 +1,4 @@
-require 'rails_helper'
+# require 'rails_helper'
 
-RSpec.describe OmniauthCallbacksController, type: :controller do
-end
+# RSpec.describe OmniauthCallbacksController, type: :controller do
+# end
