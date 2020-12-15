@@ -17,17 +17,12 @@ class PostsController < ApplicationController
   end
 
   def show
-    if user_signed_in?
-      @post = find_post_by_id
-      @post_comment = PostComment.new
-      @post_comments = @post.post_comments
-      lat_lng = []
-      lat_lng[0] = { latitude: "#{@post.spot.latitude}", longitude: "#{@post.spot.longitude}" }
-      gon.lat_lng = lat_lng
-    else
-      flash[:success] = "ここから先はログインが必要です！"
-      redirect_to new_user_session_path
-    end
+    @post = find_post_by_id
+    @post_comment = PostComment.new
+    @post_comments = @post.post_comments
+    lat_lng = []
+    lat_lng[0] = { latitude: "#{@post.spot.latitude}", longitude: "#{@post.spot.longitude}" }
+    gon.lat_lng = lat_lng
   end
 
   def edit
@@ -50,7 +45,6 @@ class PostsController < ApplicationController
       tags.each do |tag|
         @post.tags.create(tag_name: tag)
       end
-      flash[:success] = "投稿が保存されました！"
       redirect_to posts_path(@post)
     else
       render 'new'

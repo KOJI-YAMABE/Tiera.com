@@ -1,7 +1,13 @@
-<% if current_user != user %>
-  <% if current_user.following?(user) %>
-    <%= link_to 'フォロー解除', user_relationships_path(user), method: :delete, class: "far fa-user btn btn-danger" %>
+<% if user_signed_in? %>
+  <% if current_user != user %>
+    <% if current_user.following?(user) %>
+      <%= link_to 'フォロー解除', user_relationships_path(user), method: :delete, class: "far fa-user btn btn-danger" %>
+    <% else %>
+      <%= link_to 'フォロー', user_relationships_path(user), method: :POST, class: "fas fa-user btn btn-primary" %>
+    <% end %>
   <% else %>
-    <%= link_to 'フォロー', user_relationships_path(user), method: :POST, class: "fas fa-user btn btn-primary" %>
+    <%= link_to user_path(current_user), class: "btn btn-default btn-sm" do %>
+        <i class="fas fa-user"></i>プロフィール
+    <% end %>
   <% end %>
 <% end %>
