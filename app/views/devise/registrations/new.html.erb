@@ -1,8 +1,7 @@
 <div class="container">
-
-    <div class="omb_login">
-      <h2 class="omb_authTitle">Tieraに登録</h2>
-      <p class="omb_authTitle">コメントや投稿、友達申請を行えるようになります！！</p>
+  <div class="omb_login">
+    <h2 class="omb_authTitle">Tieraに登録</h2>
+    <p class="omb_authTitle">コメントや投稿、友達申請を行えるようになります！！</p>
     <div class="row omb_row-sm-offset-3 omb_socialButtons">
       <div class="col-xs-6 col-sm-3">
         <%= link_to "Facebook", user_facebook_omniauth_authorize_path, class: "btn btn-lg btn-block omb_btn-facebook" %>
@@ -55,5 +54,5 @@
       </div>
     </div>
   </div>
-  <%= render "devise/shared/links" %>
 </div>
+  <%= render "devise/shared/links" %>
