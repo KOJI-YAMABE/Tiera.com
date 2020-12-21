@@ -29,6 +29,10 @@ body {
    padding-top: 80px;
    background-color: #F0F8FF;
    color: #5e5e5e;
+   min-height: 100vh;
+   position: relative;
+   padding-bottom: 120px;
+   box-sizing: border-box;
    &:visited {
      color: #5e5e5e;
   }
@@ -190,10 +194,11 @@ li .icon {
 footer {
   background-color: #FFF;
   height: 100px;
-  bottom: 0;
-  margin-bottom: 0;
+  width: 100%;
   border-top: solid 0.2px gray;
-  padding-top:25px;
+  padding: 30px 0;
+  position: absolute;
+  bottom: 0;
 }
 
 footer .copyright {
@@ -206,13 +211,6 @@ footer .copyright {
   opacity: 0.9;
   color: #383838;
   text-decoration: none;
-  &:visited {
-    color: #383838;
-  }
-  &:hover {
-    opacity: 0.7;
-    text-decoration: none;
-  }
 }
 
 /*------------ログイン-------------*/
