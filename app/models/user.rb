@@ -16,7 +16,7 @@ class User < ApplicationRecord
   attachment :profile_image, destroy: false
 
   validates :name, length: { maximum: 20, minimum: 2 }, uniqueness: true, unless: :uid?
-  validates :introduction, length: { maximum: 100 }
+  validates :introduction, length: { maximum: 150 }
 
   # is_deletedがfalseの場合は有効会員(ログイン可能)
   def active_for_authentication?
