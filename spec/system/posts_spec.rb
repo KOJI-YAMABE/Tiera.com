@@ -49,61 +49,46 @@ describe '投稿のテスト' do
       visit books_path
     end
     context '表示の確認' do
-      it 'Booksと表示される' do
-        expect(page).to have_content 'Books'
-      end
       it '自分と他人の画像のリンク先が正しい' do
-        expect(page).to have_link '', href: user_path(book.user)
-        expect(page).to have_link '', href: user_path(book2.user)
+        expect(page).to have_link '', href: user_path(post.user)
+        expect(page).to have_link '', href: user_path(post2.user)
       end
-      it '自分と他人のタイトルのリンク先が正しい' do
-        expect(page).to have_link book.title, href: book_path(book)
-        expect(page).to have_link book2.title, href: book_path(book2)
-      end
-      it '自分と他人のオピニオンが表示される' do
-        expect(page).to have_content book.body
-        expect(page).to have_content book2.body
+      it '自分と他人のコンテンツが表示される' do
+        expect(page).to have_content post.content
+        expect(page).to have_content post2.content
       end
     end
   end
 
   describe '詳細画面のテスト' do
     context '自分・他人共通の投稿詳細画面の表示を確認' do
-      it 'Book detailと表示される' do
-        visit book_path(book)
-        expect(page).to have_content 'Book detail'
-      end
       it 'ユーザー画像・名前のリンク先が正しい' do
-        visit book_path(book)
-        expect(page).to have_link book.user.name, href: user_path(book.user)
+        visit post_path(post)
+        expect(page).to have_link post.user.name, href: user_path(post.user)
       end
-      it '投稿のtitleが表示される' do
-        visit book_path(book)
-        expect(page).to have_content book.title
-      end
-      it '投稿のopinionが表示される' do
-        visit book_path(book)
-        expect(page).to have_content book.body
+      it '投稿の内容が表示される' do
+        visit post_path(post)
+        expect(page).to have_content post.content
       end
     end
     context '自分の投稿詳細画面の表示を確認' do
       it '投稿の編集リンクが表示される' do
-        visit book_path book
-        expect(page).to have_link 'Edit', href: edit_book_path(book)
+        visit post_path post
+        expect(page).to have_link '編集', href: edit_post_path(post)
       end
       it '投稿の削除リンクが表示される' do
-        visit book_path book
-        expect(page).to have_link 'Destroy', href: book_path(book)
+        visit post_path post
+        expect(page).to have_link '', href: post_path(post)
       end
     end
     context '他人の投稿詳細画面の表示を確認' do
       it '投稿の編集リンクが表示されない' do
-        visit book_path(book2)
-        expect(page).to have_no_link 'Edit', href: edit_book_path(book2)
+        visit post_path(post2)
+        expect(page).to have_no_link '編集', href: edit_post_path(post2)
       end
       it '投稿の削除リンクが表示されない' do
-        visit book_path(book2)
-        expect(page).to have_no_link 'Destroy', href: book_path(book2)
+        visit post_path(post2)
+        expect(page).to have_no_link '', href: post_path(post2)
       end
     end
   end
