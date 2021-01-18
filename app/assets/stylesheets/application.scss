@@ -33,15 +33,18 @@ body {
    position: relative;
    padding-bottom: 120px;
    box-sizing: border-box;
+
    &:visited {
      color: #5e5e5e;
   }
+
+  &:hover {
+     text-decoration: none;
+  }
+
   a {
      text-align: center;
      color: #5e5e5e;
-  }
-  &:hover {
-     text-decoration: none;
   }
 }
 
@@ -199,18 +202,18 @@ footer {
   padding: 30px 0;
   position: absolute;
   bottom: 0;
-}
 
-footer .copyright {
-  text-transform: none;
-  font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  text-align: center;
-}
+  & .copyright {
+    text-transform: none;
+    font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    text-align: center;
+  }
 
-.footer-text  {
-  opacity: 0.9;
-  color: #383838;
-  text-decoration: none;
+  & .footer-text  {
+    opacity: 0.9;
+    color: #383838;
+    text-decoration: none;
+  }
 }
 
 /*------------ログイン-------------*/
@@ -263,23 +266,26 @@ footer .copyright {
   text-align: center;
 }
 /*------------ページネーション------------*/
-.pagination>li>a {
+
+.pagination > li > a {
   border: none;
   color: #696969;
 }
 
 /* 表示しているページ番号のデザイン */
-.pagination>.active>a {
+
+.pagination > .active > a {
   background: #93c9ff;
   border-radius: 15px;
 }
 
 /*ホバー時のデザイン*/
-.pagination>li>a:hover {
+.pagination > li > a:hover {
   border-radius: 15px;
 }
 
 /*------------画像------------*/
+
 .update-img {
   width: 150px;
 }
@@ -287,10 +293,12 @@ footer .copyright {
 .img {
   object-fit: cover;
   box-shadow:  5px 10px 20px rgba(0,0,0,0.25);
-  &:hover{
+
+  &:hover {
     opacity: .5;
     transition: transform 0.3s ease;
   }
+  
   &-show {
     width: 500px;
   }
