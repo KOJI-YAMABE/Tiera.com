@@ -15,14 +15,14 @@ function initMap(){
       center: {lat: 35.6594666, lng: 139.7005536},
       zoom: 5,
     });
-    var lat_lng ;
-    for(var i = 0; i < gon.lat_lng.length; i++){
+    let lat_lng ;
+    for(let i = 0; i < gon.lat_lng.length; i++){
       lat_lng = gon.lat_lng[i];
       console.log(lat_lng);
       console.log(lat_lng.latitude);
-      var latlng = new google.maps.LatLng(parseFloat(lat_lng.latitude),parseFloat(lat_lng.longitude));
+      let latlng = new google.maps.LatLng(parseFloat(lat_lng.latitude),parseFloat(lat_lng.longitude));
       console.log(latlng);
-      var marker = new google.maps.Marker({ //GoogleMapにマーカーを落とす
+      let marker = new google.maps.Marker({ //GoogleMapにマーカーを落とす
         position: latlng, //マーカーを落とす位置を決める（値はDBに入っている）
         map: map //マーカーを落とすマップを指定
       });
